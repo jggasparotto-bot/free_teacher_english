@@ -1,5 +1,5 @@
 """Mare Noturna - night psytrance mixing a hypnotic Burn in Noise-style groove with
-Nano-style (Regan) euphoric full-on. All sounds synthesized from scratch with numpy;
+Regan Nano-style twisted psychedelic full-on. All sounds synthesized from scratch with numpy;
 only the final mix (MP3) is written."""
 import os, subprocess, tempfile, wave, json
 import numpy as np
@@ -8,12 +8,12 @@ import mido
 from scipy.signal import butter, sosfilt, oaconvolve
 
 SR = 44100
-BPM = 146
+BPM = 147
 TRANSPOSE = -5         # riffs written in D -> played in A
 BEAT = 60 / BPM
 S16 = BEAT / 4
 BAR = BEAT * 4
-rng = np.random.default_rng(31)
+rng = np.random.default_rng(37)
 
 SECTIONS = [("intro", 32), ("build1", 16), ("groove1", 32), ("break1", 8), ("groove2", 32),
             ("breakdown", 32), ("build2", 8), ("drop", 48), ("twist", 8), ("drop2", 32),
@@ -23,7 +23,7 @@ _b = 0
 for name, n in SECTIONS:
     START[name] = (_b, _b + n)
     _b += n
-TOTAL_BARS = _b                        # 272 bars = 7:27 at 146 BPM
+TOTAL_BARS = _b                        # 272 bars = 7:24 at 147 BPM
 N = int((TOTAL_BARS * BAR + 5) * SR)
 
 STEMS = ["01 Kick", "02 Bass", "03 Hats", "04 Shakers", "05 Ride", "06 Claps & Snares",
@@ -505,8 +505,8 @@ def note_raw(name):
     names = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11, "Bb": 10, "Eb": 3}
     return 440 * 2 ** ((names[name[:-1]] + 12 * (int(name[-1]) + 1) - 69 + TRANSPOSE) / 12)
 
-A1, F1, C2r, G1 = note_raw("A1"), note_raw("F1"), note_raw("C2"), note_raw("G1")
-CHORD_ROOTS = [A1, F1, C2r, G1]          # Am - F - C - G, one bar each
+A1, Bb1, G1 = note_raw("A1"), note_raw("Bb1"), note_raw("G1")
+CHORD_ROOTS = [A1, Bb1, A1, G1]          # Am - Bb - Am - Gm (A phrygian), one bar each
 
 
 def bass_roots(bar, root, cut_mult=1.0, gain=1.0):
@@ -553,10 +553,10 @@ def pluck(f):
     return s * np.minimum(1, t / 0.002) * np.exp(-t * 14) * 0.45
 
 
-ARP = {0: ["A4", "E5", "A5", "E5", "C5", "E5", "A5", "C6", "A4", "E5", "A5", "E5", "C5", "E5", "G5", "E5"],
-       1: ["F4", "C5", "F5", "C5", "A4", "C5", "F5", "A5", "F4", "C5", "F5", "C5", "A4", "C5", "E5", "C5"],
-       2: ["C5", "G5", "C6", "G5", "E5", "G5", "C6", "E6", "C5", "G5", "C6", "G5", "E5", "G5", "D6", "G5"],
-       3: ["G4", "D5", "G5", "D5", "G4", "D5", "G5", "D6", "G4", "D5", "G5", "D5", "C5", "D5", "E5", "D5"]}
+ARP = {0: ["A4", "A5", "E5", "A4", "Bb4", "A5", "E5", "C5", "A4", "A5", "E5", "A4", "C5", "Bb4", "A4", "E5"],
+       1: ["Bb4", "Bb5", "F5", "Bb4", "C5", "Bb5", "F5", "D5", "Bb4", "Bb5", "F5", "Bb4", "D5", "C5", "Bb4", "F5"],
+       2: ["A4", "A5", "E5", "A4", "Bb4", "A5", "E5", "C5", "A4", "E5", "A5", "C6", "Bb5", "A5", "E5", "C5"],
+       3: ["G4", "G5", "D5", "G4", "Bb4", "G5", "D5", "Bb4", "G4", "G5", "D5", "G4", "A4", "Bb4", "C5", "D5"]}
 
 
 def pluck_bar(bar, gain=0.2, cut=1.0, chord=None):
@@ -567,10 +567,10 @@ def pluck_bar(bar, gain=0.2, cut=1.0, chord=None):
         add(s, pos(bar, i / 4), gain, pan=0.45 * np.sin(np.pi * i / 4), rev=0.2, dly=0.35, b="12 Machine")
 
 
-MELODY = [[(0, 3, "E5"), (3, 3, "A5"), (6, 2, "C6"), (8, 4, "A5"), (12, 2, "G5"), (14, 2, "E5")],
-          [(0, 3, "F5"), (3, 3, "A5"), (6, 2, "C6"), (8, 4, "D6"), (12, 2, "C6"), (14, 2, "A5")],
-          [(0, 3, "G5"), (3, 3, "C6"), (6, 2, "E6"), (8, 4, "D6"), (12, 2, "C6"), (14, 2, "G5")],
-          [(0, 6, "D6"), (6, 2, "C6"), (8, 4, "A5"), (12, 4, "G5")]]
+MELODY = [[(0, 3, "E5"), (3, 3, "A5"), (6, 2, "Bb5"), (8, 4, "A5"), (12, 2, "G5"), (14, 2, "E5")],
+          [(0, 3, "F5"), (3, 3, "Bb5"), (6, 2, "D6"), (8, 4, "C6"), (12, 2, "Bb5"), (14, 2, "F5")],
+          [(0, 3, "E5"), (3, 3, "A5"), (6, 2, "C6"), (8, 4, "E6"), (12, 2, "D6"), (14, 2, "C6")],
+          [(0, 6, "D6"), (6, 2, "C6"), (8, 4, "Bb5"), (12, 4, "A5")]]
 
 
 def lead_melody(bar0, nbars, gain=0.22, octave=1.0, gate=0.55, cut=6000, slow=1):
@@ -584,7 +584,7 @@ def lead_melody(bar0, nbars, gain=0.22, octave=1.0, gate=0.55, cut=6000, slow=1)
 
 
 def chords_pad(b0, b1, gain=0.3, slow=1):
-    CH = [["A3", "C4", "E4"], ["F3", "A3", "C4"], ["C4", "E4", "G4"], ["G3", "D4", "G4"]]
+    CH = [["A3", "C4", "E4"], ["Bb3", "D4", "F4"], ["A3", "C4", "E4"], ["G3", "Bb3", "D4"]]
     for i, b in enumerate(range(b0, b1, slow)):
         fs = [note_raw(n) for n in CH[i % 4]]; fs.append(fs[0] / 2)
         add(pad_chord(fs, slow * BAR + 0.7), pos(b) - int(0.3 * SR), gain, rev=0.6, b="11 Pad & Drone")
@@ -598,6 +598,48 @@ def waves(b0, b1, gain=0.22, fade_out=False):
     if fade_out: env *= np.clip((t[-1] - t) / 8, 0, 1)
     l, r = pan_lfo(w * env, 0.03, 0.6)
     add_st(l, r, s, gain, rev=0.25, b="14 Atmosphere")
+
+
+TWIST = ["A4", None, "C5", "Bb4", "A4", "E5", None, "D5", "C5", "Bb4", "A4", None, "G4", "A4", "Bb4", "C5",
+         "A5", None, "E5", "F5", "E5", "Bb4", None, "A4", "E5", "D5", "C5", None, "Bb4", "C5", "D5", "E5"]
+
+
+def twisted_lead(bar0, nbars, gain=0.2, pan=0.0, octave=1.0):
+    """Psychedelic full-on lead: every note dives in from a fifth above, FM squelch, wobble."""
+    length = int(nbars * BAR * SR)
+    freq = np.zeros(length); amp = np.zeros(length)
+    step = int(S16 * SR)
+    for k in range(nbars * 16):
+        nm = TWIST[k % 32]
+        if nm is None: continue
+        f = note_raw(nm) * octave
+        st = k * step; n = min(int(step * 1.7), length - st)
+        tt = t_(n)
+        freq[st:st + n] = f * (1 + 0.5 * np.exp(-tt * 70))          # dive from a fifth above
+        amp[st:st + n] = np.maximum(amp[st:st + n], np.minimum(1, tt / 0.002) * np.exp(-tt * 9))
+    freq[freq == 0] = note_raw("A4") * octave
+    t = t_(length)
+    freq *= 1 + 0.006 * np.sin(2 * np.pi * 5.5 * t)
+    ph = 2 * np.pi * np.cumsum(freq) / SR
+    idx = 2.5 + 2 * np.sin(2 * np.pi * t / (BAR * 4))               # timbre morphs every 4 bars
+    s = np.sin(ph + idx * amp * np.sin(ph * 1.5)) * 0.6 + saw(freq, length) * 0.3
+    s = filt(s, [500, 6000], "band") * amp
+    l, r = pan_lfo(np.tanh(s * 1.5), 0.25, 0.5)
+    add_st(l, r, pos(bar0), gain, rev=0.2, dly=0.4, b="10 Lead")
+
+
+def boing(up=False):
+    n = int(0.35 * SR); t = t_(n)
+    f = 90 + 900 * (np.exp(-t * 12) if not up else 1 - np.exp(-t * 12))
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    return np.sin(ph + 3 * np.sin(ph * 0.5)) * np.exp(-t * 7) * 0.5
+
+
+def reverse_swell(dur):
+    n = int(dur * SR); t = t_(n)
+    s = sum(saw(note_raw(x) * (1 + d), n) for x in ("A3", "E4", "A4") for d in (-0.006, 0.006)) / 6
+    s = filt(s + noise(n) * 0.2, 2500)
+    return s * (t / dur) ** 3
 
 
 def uplifter(b0, b1, gain=0.2):
@@ -663,7 +705,8 @@ for i, b in enumerate(range(h0, h1)):
     pluck_bar(b, gain=0.18)
     if i >= 16 and b % 2 == 1: growl_bar(b, gain=0.2)       # dark answers to the bright plucks
     if i % 8 == 6: swirl_at(b, 2, 400, 8000, 0.8, 0.15)
-lead_melody(h0 + 16, 16, gain=0.13, cut=3000, gate=0.7)
+lead_melody(h0 + 16, 16, gain=0.11, cut=3000, gate=0.7)
+twisted_lead(h0 + 8, 8, gain=0.12, pan=0.3)
 
 # BREAKDOWN: melodic and wide
 k0, k1 = START["breakdown"]
@@ -698,8 +741,12 @@ for i, b in enumerate(range(d0, d1)):
     if i >= 16: acid_bar(b, open_=0.7, gain=0.17, pan_speed=0.5)
     if i % 8 == 6: swirl_at(b, 2, 500, 9000, 1.2, 0.14)
     if i % 4 == 3: add(zap(up=True), pos(b, 3), 0.16, pan=0.7, dly=0.4)
-lead_melody(d0, 48, gain=0.22, cut=6500, gate=0.55)
-lead_melody(d0 + 32, 16, gain=0.1, octave=2.0, cut=7000, gate=0.55)
+lead_melody(d0, 48, gain=0.18, cut=6000, gate=0.6)
+twisted_lead(d0 + 16, 16, gain=0.16, pan=-0.2)
+twisted_lead(d0 + 40, 8, gain=0.12, octave=2.0, pan=0.3)
+for b in range(d0, d1, 8):
+    add(boing(), pos(b + 3, 3.5), 0.18, pan=-0.6, rev=0.2, dly=0.4)
+    add(reverse_swell(BAR), pos(b + 7), 0.2, rev=0.3)
 chords_pad(d0, d1, gain=0.12)
 
 # TWIST: back to the Burn in Noise darkness, one note, growls, stutters
@@ -724,7 +771,10 @@ for i, b in enumerate(range(e0, e1)):
     if i >= 16: pluck_bar(b, gain=0.12)
     if i % 8 == 6: swirl_at(b, 2, 600, 10000, 1.5, 0.14)
 lead_melody(e0 + 16, 16, gain=0.22, cut=7000, gate=0.55)
-lead_melody(e0 + 16, 16, gain=0.1, octave=2.0, cut=7000, gate=0.55)
+twisted_lead(e0, 16, gain=0.18, pan=0.2)
+twisted_lead(e0 + 16, 16, gain=0.1, octave=2.0, pan=-0.3)
+for b in range(e0, e1, 8):
+    add(boing(up=True), pos(b + 5, 1.5), 0.18, pan=0.6, rev=0.2, dly=0.4)
 
 # OUTRO
 o0, o1 = START["outro"]
