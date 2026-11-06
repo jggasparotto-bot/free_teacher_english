@@ -23,8 +23,11 @@ Antes de compor, confira esta tabela e escolha valores que ainda **não** foram 
 |---|---|---|---|---|---|
 | Três Luas | 148 | F♯ frígio | três luas, noite | acid, wah, stabs, lead torcido, supersaw | pergunta e resposta a cada 2 compassos |
 | Miragem | 146 | G frígio dominante | deserto, miragem | darbuka, oud (Karplus-Strong), screamer, synth "falante" | seção half-time e modulação de meio tom no drop 2 |
+| Tempestade Elétrica | 147 | B menor harmônico | tempestade, chuva | baixo em tercina, arpejo FM "vidro", hook supersaw gated (Avalon), chuva e trovões | ponte em 3/4 e final seco |
 
-Ideias ainda não usadas: menor harmônico, 150 BPM, baixo em tercina, percussão metálica de oficina, coral sintético, lead de FM "sino", quebra com tempo 3/4, final sem fade (corte seco), tema de cidade, chuva, máquinas ou floresta.
+Ideias ainda não usadas: 150 BPM, percussão metálica de oficina, coral sintético, menor melódico ou dórico, baixo com slides 303 por baixo de tudo, compasso 7/8 numa quebra, tema de cidade, máquinas, floresta ou espaço.
+
+Influências já usadas além do trio base: Avalon (hooks grandes e builds épicos) na Tempestade Elétrica.
 
 ## Código
 Cada faixa é um script em `musica/` que gera o MP3 (`python3 <faixa>.py`). Os instrumentos são sintetizados com `numpy`/`scipy`, e as vozes usam o `espeak-ng`.
