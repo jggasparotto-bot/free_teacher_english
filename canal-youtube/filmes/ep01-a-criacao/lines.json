@@ -1,0 +1,170 @@
+[
+ {
+  "id": "vinheta",
+  "text": "Bíblia em Traços!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "titulo",
+  "text": "A Criação.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "e1",
+  "text": "No princípio, antes de existir qualquer coisa, tudo era escuro e vazio.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "e2",
+  "text": "Não havia céu, nem terra, nem mar, mas Deus já estava lá.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d1a",
+  "text": "Então Deus disse: Haja luz! E a luz apareceu!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d1b",
+  "text": "Deus viu que a luz era boa. Ele chamou a luz de dia, e a escuridão de noite.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d2a",
+  "text": "No segundo dia, Deus separou as águas e fez o céu, lá no alto.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d2b",
+  "text": "Em cima, o céu azul. Embaixo, as águas do mar.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d3a",
+  "text": "No terceiro dia, Deus juntou as águas e fez aparecer a terra seca.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d3b",
+  "text": "E da terra brotaram plantas, flores e árvores cheias de frutos!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d4a",
+  "text": "No quarto dia, Deus colocou no céu o sol, para brilhar durante o dia,",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d4b",
+  "text": "e a lua e as estrelas, para iluminar a noite.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d5a",
+  "text": "No quinto dia, Deus encheu as águas de peixes de todos os tamanhos,",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d5b",
+  "text": "e o céu de passarinhos que voavam e cantavam.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d6a",
+  "text": "No sexto dia, Deus fez os animais da terra: ovelhas, coelhos, leões, elefantes,",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d6b",
+  "text": "E então Deus fez a sua criação mais especial: o homem e a mulher, Adão e Eva.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d6c",
+  "text": "Deus os fez parecidos com Ele, para cuidarem com carinho de tudo o que Ele criou.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d7a",
+  "text": "Deus olhou para tudo o que tinha feito, e viu que era muito bom!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "d7b",
+  "text": "No sétimo dia, Deus descansou, e fez desse dia um dia especial.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "l1",
+  "text": "Tudo o que existe foi feito por Deus, com muito amor.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "l2",
+  "text": "E sabe quem mais Ele fez com todo o carinho?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "l3",
+  "text": "Você!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "l4",
+  "text": "Agora converse com sua família: qual parte da criação você mais gosta?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "fim",
+  "text": "Inscreva-se no canal! Na próxima história: Adão e Eva no Jardim do Éden.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ }
+]

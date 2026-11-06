@@ -6,7 +6,10 @@ Histórias da Bíblia desenhadas para toda a família.
 |---|---|
 | 📺 Plano completo do canal (identidade, formatos, calendário, SEO, configuração, crescimento) | [`01-plano-do-canal.md`](01-plano-do-canal.md) |
 | 📝 Roteiros das 20 histórias (cenas, narração, lição, Short, título, tags e miniatura) | [`roteiros/`](roteiros/) |
-| 🎬 Episódio piloto pronto: **A Criação** (1080p, 2min20, **narrado**, trilha original + legendas) | [`video/ep01/ep01_a_criacao.mp4`](video/ep01/ep01_a_criacao.mp4) |
+| ⭐ **Episódio 1 oficial: A Criação, no estilo giz de cera** (1080p, 2min11, narrado, trilha com instrumentos reais, legendas) | [`filmes/ep01-a-criacao/a-criacao.mp4`](filmes/ep01-a-criacao/a-criacao.mp4) |
+| 🖼️ Miniatura do episódio 1 (giz de cera) | [`filmes/ep01-a-criacao/poster.jpg`](filmes/ep01-a-criacao/poster.jpg) |
+| 🎥 Como o filme foi pensado (estrutura, planos, música, som) | [`filmes/ep01-a-criacao/TREATMENT.md`](filmes/ep01-a-criacao/TREATMENT.md) |
+| 🎬 Primeira versão do piloto (desenho vetorial simples) | [`video/ep01/ep01_a_criacao.mp4`](video/ep01/ep01_a_criacao.mp4) |
 | 🎙️ Amostra das 3 vozes de narrador disponíveis (Dora, Alex, Santa) | [`video/ep01/amostra_vozes.mp3`](video/ep01/amostra_vozes.mp3) |
 | 🔊 Só o áudio do episódio (voz + trilha) | [`video/ep01/audio_narrado.mp3`](video/ep01/audio_narrado.mp3) |
 | 🖼️ Miniatura do piloto (1280×720) | [`video/ep01/miniatura_ep01.png`](video/ep01/miniatura_ep01.png) |
@@ -28,7 +31,23 @@ Histórias da Bíblia desenhadas para toda a família.
 | 09 | [As Muralhas de Jericó](roteiros/09-muralhas-de-jerico.md) | 19 | [O Filho Pródigo](roteiros/19-filho-prodigo.md) |
 | 10 | [Sansão, o Homem Mais Forte](roteiros/10-sansao.md) | 20 | [Jesus Ressuscitou!](roteiros/20-jesus-ressuscitou.md) 🌅 |
 
-## Como gerar o vídeo de novo
+## Como gerar o episódio em giz de cera
+
+O estilo "Crayon Picture Book" vem da biblioteca [Lemo-Opuscar](https://github.com/lemomo-ai/lemo-opuscar) (licença MIT).
+Precisa de Node 20+, Python 3.11+ e ffmpeg; a biblioteca instala o resto:
+
+```bash
+git clone https://github.com/lemomo-ai/lemo-opuscar.git ~/lemo-opuscar
+cd ~/lemo-opuscar && sh plugin/skills/lemo-opuscar/scripts/setup.sh deps voice music
+sh tools/fetch.sh instruments vcsl && sh tools/fetch.sh instruments freepats && sh tools/fetch.sh instruments vsco2ce
+LIB=~/lemo-opuscar sh /caminho/para/canal-youtube/filmes/ep01-a-criacao/build.sh
+```
+
+Tudo o que aparece e soa no filme está em código: `film.js` (linha do tempo, câmera, páginas), `chars.js`
+(personagens), `music/score.py` (trilha), `mix.py` (efeitos, voz e mixagem) e `lines.json` (as falas).
+Para um novo episódio, copie a pasta e troque as falas, os desenhos e a linha do tempo.
+
+## Como gerar a primeira versão (desenho vetorial simples)
 
 Requisitos: Python 3, `pillow`, `numpy`, `ffmpeg`, `espeak-ng` e `pip install kokoro-onnx soundfile`.
 Na primeira execução, o modelo de voz (~350 MB) é baixado sozinho para `video/modelos/`.
