@@ -35,16 +35,17 @@ function face(C, P, o, sd, skin) {
 // o.kind: 'adam' | 'eve' | 'child'; o.armL / o.armR: pontos [ombro, cotovelo, mão] locais; o.expr; o.draw (traço), o.fill (cor)
 export function person(C, o) {
   const T = T0(o), P = pts => T(pts), sd = o.seed || 2000, kind = o.kind || 'adam';
-  const skinCol = kind === 'adam' ? K.brown : K.peach;
+  const skinCol = o.skin || (kind === 'adam' ? K.brown : K.peach);
   const skinF = fo(skinCol, sd + 1, o, { p: kind === 'adam' ? 0.42 : 0.6, gap: 10, w: 12, ang: 0.6, over: 3 });
   const clothCol = o.cloth || (kind === 'child' ? K.yellow : K.green);
+  const robe = o.robe || kind === 'man' || kind === 'woman';
   const clothF = fo(clothCol, sd + 2, o, { p: 0.82, gap: 10, w: 12, ang: kind === 'eve' ? -0.4 : 0.35, cross: kind !== 'child', crossP: 0.4 });
-  const hairCol = kind === 'eve' ? K.orange : kind === 'adam' ? K.ink : K.brown;
+  const hairCol = o.hair || (kind === 'eve' ? K.orange : kind === 'adam' ? K.ink : K.brown);
   const hairF = fo(hairCol, sd + 3, o, { p: 0.9, gap: 7, w: 9, ang: 1.2, over: 2 });
   const limb = (pts, w, f, s) => part(C, P(tube(curve(pts, 5), w)), f, lo(s, o));
   const hand = (c, s) => part(C, P(handCircle(c[0], c[1], 11, s, 0, 18)), skinF, lo(s, o, { w: 5.5 }));
   // cabelo comprido atrás (Eva)
-  if (kind === 'eve') part(C, P(smooth([[-70, -300], [-84, -230], [-80, -160], [-50, -150], [0, -170], [50, -150], [80, -160], [84, -230], [70, -300], [0, -330]], 6)), hairF, lo(sd + 4, o));
+  if (kind === 'eve' || kind === 'woman') part(C, P(smooth([[-70, -300], [-84, -230], [-80, -160], [-50, -150], [0, -170], [50, -150], [80, -160], [84, -230], [70, -300], [0, -330]], 6)), hairF, lo(sd + 4, o));
   // pernas e pés
   const wk = o.walk === undefined ? 0 : Math.sin(o.walk);
   [[[-17, -96], [-18 + 10 * wk, -52], [-20 + 22 * wk, -14 - 8 * Math.max(0, wk)]], [[17, -96], [18 - 10 * wk, -52], [20 - 22 * wk, -14 - 8 * Math.max(0, -wk)]]].forEach((lg, i) => {
@@ -55,14 +56,19 @@ export function person(C, o) {
   const aL = o.armL || [[-34, -196], [-56, -150], [-62, -112]];
   const aR = o.armR || [[34, -196], [56, -150], [62, -112]];
   // roupa de folhas (Adão e Eva) / camiseta (criança)
-  const hemY = kind === 'child' ? -92 : -84;
-  const body = smooth([[-30, -206], [30, -206], [48, -182], [66, hemY], [-66, hemY], [-48, -182]], 3);
+  if (o.wings) [-1, 1].forEach(sg => part(C, P(smooth([[sg * 30, -190], [sg * 120, -260], [sg * 150, -200], [sg * 120, -120], [sg * 40, -130]], 5)), fo(K.white, sd + 90 + sg, o, { p: 1, gap: 7, w: 9 }), lo(sd + 92 + sg, o)));
+  const hemY = robe ? -12 : kind === 'child' ? -92 : -84;
+  const body = robe ? smooth([[-30, -206], [30, -206], [50, -182], [72, hemY], [-72, hemY], [-50, -182]], 3) : smooth([[-30, -206], [30, -206], [48, -182], [66, hemY], [-66, hemY], [-48, -182]], 3);
   part(C, P(body), clothF, lo(sd + 20, o));
   if (o.fur) {   // roupas quentinhas: pele marrom riscada por cima das folhas
     fill(C.f, P(body), { col: K.brown, p: 0.95 * o.fur, gap: 7, w: 10, ang: -0.6, seed: sd + 25, draw: o.fur, cross: true, crossP: 0.6 });
     if (o.fur >= 1) [[-30, -170], [10, -140], [-14, -110], [30, -116]].forEach(([x, y], i) => line(C.l, P(curve([[x - 8, y], [x, y - 6], [x + 8, y]])), lo(sd + 26 + i, o, { w: 3.5, col: K.ink, p: 0.6 })));
   }
-  if (kind !== 'child' && !(o.fur >= 1)) {   // barra de folhas
+  if (robe) {   // faixa na cintura e listras (José: túnica colorida)
+    line(C.l, P([[-56, -120], [56, -120]]), lo(sd + 55, o, { w: 6, col: o.belt || K.brown }));
+    if (o.stripes) o.stripes.forEach((c, i) => { const y = -190 + i * 26; if (y > -30) return; const hw = 34 + (y + 206) * 0.2; fill(C.f, P([[-hw, y], [hw, y], [hw + 4, y + 22], [-hw - 4, y + 22]]), { col: c, p: 1, gap: 5, w: 7, seed: sd + 56 + i, draw: o.fill ?? 1 }); line(C.l, P([[-hw, y], [hw, y]]), lo(sd + 70 + i, o, { w: 3.5 })); });
+  }
+  if (kind !== 'child' && !robe && !(o.fur >= 1)) {   // barra de folhas
     for (let i = 0; i < 6; i++) {
       const x0 = -66 + i * 22;
       const leaf = smooth([[x0, hemY - 2], [x0 + 11, hemY + 24], [x0 + 22, hemY - 2], [x0 + 11, hemY + 6]], 4);
@@ -77,13 +83,13 @@ export function person(C, o) {
   const hc = [0, -262];
   const Ph = pts => P(pts.map(([x, y]) => [x + hc[0], y + hc[1]]));
   part(C, Ph(ellipse(0, 0, 64, 60, 44)), skinF, lo(sd + 70, o));
-  if (kind === 'adam') {
+  if (kind === 'adam' || kind === 'man') {
     const cur = []; for (let i = 0; i <= 60; i++) { const a = Math.PI + i / 60 * Math.PI; const r = 68 + 9 * Math.abs(Math.sin(i / 60 * Math.PI * 6)); cur.push([Math.cos(a) * r, Math.sin(a) * r * 0.82 - 8]); }
     cur.push([60, -20], [30, -30], [0, -36], [-30, -30], [-60, -20]);
     part(C, Ph(cur), hairF, lo(sd + 72, o, { w: 6.5 }));
-  } else if (kind === 'eve') {
+  } else if (kind === 'eve' || kind === 'woman') {
     part(C, Ph(smooth([[-66, -4], [-62, -38], [-36, -62], [0, -70], [36, -62], [62, -38], [66, -4], [44, -30], [10, -40], [-24, -34], [-50, -18]], 4)), hairF, lo(sd + 72, o, { w: 6.5 }));
-    // flor no cabelo
+    if (kind === 'eve') // flor no cabelo
     for (let k = 0; k < 5; k++) { const a = k / 5 * 6.28; dab(C.f, ...Ph([[44 + Math.cos(a) * 11, -46 + Math.sin(a) * 11]])[0], 8 * (o.s || 1), { col: K.pink, p: o.fill ?? 1, seed: sd + 74 + k }); }
     dab(C.f, ...Ph([[44, -46]])[0], 6 * (o.s || 1), { col: K.yellow, p: o.fill ?? 1, seed: sd + 79 });
   } else {
@@ -91,6 +97,12 @@ export function person(C, o) {
     line(C.l, Ph(curve([[-4, -64], [2, -88], [18, -92], [16, -78]])), lo(sd + 73, o, { w: 6, col: K.brown, p: 0.95 }));
   }
   face(C, Ph, o, sd + 80, skinCol);
+  if (o.beard) part(C, Ph(smooth([[-54, 6], [-46, 52], [-20, 84], [0, 90], [20, 84], [46, 52], [54, 6], [36, 40], [14, 44], [0, 40], [-14, 44], [-36, 40]], 4)), fo(o.beardCol || K.brown, sd + 120, o, { p: 0.9, gap: 6, w: 8 }), lo(sd + 121, o, { w: 6 }));
+  if (o.beard) line(C.l, Ph([[-12, 30], [0, 34], [12, 30]]), lo(sd + 122, o, { w: 4.5 }));
+  if (o.scarf) part(C, Ph(smooth([[-78, 40], [-76, -30], [-50, -72], [0, -84], [50, -72], [76, -30], [78, 40], [60, 10], [56, -30], [30, -50], [0, -56], [-30, -50], [-56, -30], [-60, 10]], 4)), fo(o.scarf, sd + 124, o, { p: 0.85, gap: 7, w: 9 }), lo(sd + 125, o, { w: 6 }));
+  if (o.crown) part(C, Ph([[-50, -50], [-56, -112], [-30, -80], [0, -122], [30, -80], [56, -112], [50, -50], [-50, -50]]), fo(K.yellow, sd + 126, o, { p: 1, gap: 6, w: 8 }), lo(sd + 127, o, { w: 6, col: K.orange }));
+  if (o.helmet) part(C, Ph(smooth([[-70, -10], [-64, -60], [-30, -90], [0, -96], [30, -90], [64, -60], [70, -10], [40, -24], [0, -30], [-40, -24]], 4)), fo(K.grey, sd + 128, o, { p: 0.9, gap: 7, w: 9 }), lo(sd + 129, o, { w: 6 }));
+  if (o.halo) line(C.l, Ph(ellipse(0, -96, 50, 14, 30)), lo(sd + 130, o, { w: 6, col: K.yellow }));
 }
 
 // ——— ovelha (origem = pés) ———
@@ -315,4 +327,13 @@ export function fruit(C, x, y, r = 22, sd = 2990, bite = 0) {
   line(C.l, [[x, y - r], [x + 4, y - r - 14]], { w: 4, col: K.brown, seed: sd + 2 });
   dab(C.l, x - r * 0.35, y - r * 0.35, r * 0.22, { col: K.white, p: 1, seed: sd + 3 });
   if (bite > 0) { const bx = x + r * 0.8, by = y - r * 0.1; part(C, handCircle(bx, by, r * 0.5, sd + 4, 0, 16), { col: K.peach, p: 0.5, gap: 3, w: 4, seed: sd + 5 }, null); }
+}
+
+export function baby(C, o) {
+  const T = T0(o), P = pts => T(pts), sd = o.seed || 2600, s = o.s || 1;
+  part(C, P(smooth([[-70, 0], [-60, -40], [0, -54], [60, -40], [74, 0], [40, 20], [-40, 20]], 5)), fo(K.white, sd, o, { p: 1, gap: 7, w: 9 }), lo(sd + 1, o));
+  [[-30, -40, -20, 10], [10, -44, 20, 14]].forEach(([a, b, c, d], i) => line(C.l, P([[a, b], [c, d]]), lo(sd + 2 + i, o, { w: 4 })));
+  part(C, P(handCircle(-78, -26, 34, sd + 4, 0, 28)), fo(K.peach, sd + 5, o, { p: 0.6, gap: 8, w: 10 }), lo(sd + 6, o));
+  [[-90, -30], [-68, -32]].forEach(([x, y], i) => line(C.l, P([[x - 5, y], [x, y + 4], [x + 5, y]]), lo(sd + 7 + i, o, { w: 3.5 })));
+  line(C.l, P([[-84, -14], [-78, -10], [-72, -14]]), lo(sd + 9, o, { w: 3.5 }));
 }

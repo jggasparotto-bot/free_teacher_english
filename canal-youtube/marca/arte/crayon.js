@@ -7,7 +7,8 @@ const _Q = new URLSearchParams(location.search);
 export const W = +(_Q.get('w') || 1920), H = +(_Q.get('h') || 1080);   // tamanho da imagem (?w=&h=)
 export const CAM = { x: 960, y: 540, s: 1 };
 export const BOIL = { step: 0, amp: 1 };
-export const WMUL = { k: 1 };        // global line-width multiplier (adjustable for big close-ups on the model sheet)
+export const WMUL = { k: 1 };
+export const MODE = { nofill: _Q.get('line') === '1' };   // ?line=1: só contornos (livro para colorir)        // global line-width multiplier (adjustable for big close-ups on the model sheet)
 
 export function layer() { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.lineCap = 'round'; g.lineJoin = 'round'; return { c, g }; }
 export function clear(L) { L.g.setTransform(1, 0, 0, 1, 0, 0); L.g.clearRect(0, 0, W, H); }
@@ -36,7 +37,7 @@ function resample(sp, step = 3.5, closed = false) {
 // o: col, w (screen px), p (pressure 0–1), seed, wob (hand wobble), boil, taper (tapering ratio at both ends), draw (drawing progress 0–1), streak (number of stroke streaks)
 export function line(L, pts, o = {}) {
   const g = L.g;
-  const col = o.col || "#2d3263", w = ws(o.w ?? 6), p = o.p ?? 0.8, seed = o.seed ?? 1, wob = o.wob ?? 1, boil = o.boil ?? 1;
+  const col = MODE.nofill ? '#4a2f22' : (o.col || "#2d3263"), w = ws(o.w ?? 6), p = MODE.nofill ? Math.max(0.9, o.p ?? 0.8) : (o.p ?? 0.8), seed = o.seed ?? 1, wob = o.wob ?? 1, boil = o.boil ?? 1;
   const draw = o.draw ?? 1; if (draw <= 0) return;
   const sp = toScreen(pts); const R = resample(sp, 3, o.closed);
   let n = R.p.length; if (n < 2) return;
@@ -80,6 +81,7 @@ function ribbon(g, P, Wd, k) {
 // ——— fill: back-and-forth zigzag hatching that goes over the outline ———
 // o: col, p, ang (hatching angle), gap (row spacing px), w (stroke width px), over (overshoot past the outline px), seed, draw (fill progress), boil, cross (second cross-hatching pass)
 export function fill(L, poly, o = {}) {
+  if (MODE.nofill) return;
   const g = L.g;
   const col = o.col || '#f6c945', p = o.p ?? 0.62, seed = o.seed ?? 1, boil = o.boil ?? 1;
   const st = BOIL.step, ba = BOIL.amp * boil;
@@ -153,6 +155,7 @@ function cutPath(pp, len) {
 
 // ——— solid soft fill: small areas (blush, pupils) filled with circular scribbles ———
 export function dab(L, x, y, r, o = {}) {
+  if (MODE.nofill) { if (r > 3) line(L, handCircle(x, y, r, o.seed ?? 1, 0.05, 18), { w: 3, seed: o.seed ?? 1, wob: 0.3 }); return; }
   fill(L, handCircle(x, y, r, o.seed ?? 1, 0, 20).map(([px, py]) => [px, y + (py - y) * (o.sq ?? 1)]), { col: o.col || '#ee8ea4', p: o.p ?? 0.7, gap: o.gap ?? 4.5, w: o.w ?? 6, over: o.over ?? 1.5, seed: o.seed ?? 1, ang: o.ang ?? 0.5, boil: o.boil ?? 1 });
 }
 
