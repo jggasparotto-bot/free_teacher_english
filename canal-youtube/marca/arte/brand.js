@@ -14,7 +14,17 @@ function patch(L, cx, cy, hw, hh) {   // retalho de papel limpo (knock) atrás d
   for (let i = 0; i <= 60; i++) { const a = i / 60 * Math.PI * 2; const px = Math.cos(a), py = Math.sin(a); const sq = Math.pow(Math.abs(px), 0.3) * Math.sign(px); const n = 1 + 0.06 * Math.sin(a * 7 + 1.3) + 0.03 * Math.sin(a * 17); const X = cx + sq * hw * n, Y = cy + py * hh * n; i ? g.lineTo(X, Y) : g.moveTo(X, Y); }
   g.closePath(); g.fill(); g.restore();
 }
-const T = (str, x, y, size, o = {}) => text(TX, str, x, y, { size, font: o.font || 'Gochi Hand', col: o.col || K.ink, p: 1, stroke: o.stroke ?? (o.font === 'Patrick Hand' ? 1 : 2), seed: o.seed || (x * 0.13 + y * 0.07), align: o.align });
+const LG = new URLSearchParams(location.search).get('lang') || 'pt';
+const TRAD = {
+  en: { 'Bíblia em Traços': 'Bible in Crayon', 'Histórias da Bíblia desenhadas para toda a família': 'Bible stories drawn for the whole family', 'Nova história todo sábado!': 'A new story every Saturday!',
+        'A Criação': 'Creation', 'Adão e Eva': 'Adam and Eve', 'Episódio completo': 'Full episode', 'no canal!': 'on the channel!', 'NÃO COMA!': "DON'T EAT IT!",
+        'EPISÓDIO 1': 'EPISODE 1', 'EPISÓDIO 2': 'EPISODE 2', 'Já no YouTube!': 'Now on YouTube!' },
+  es: { 'Bíblia em Traços': 'Biblia en Trazos', 'Histórias da Bíblia desenhadas para toda a família': 'Historias de la Biblia dibujadas para toda la familia', 'Nova história todo sábado!': '¡Nueva historia todos los sábados!',
+        'A Criação': 'La Creación', 'Adão e Eva': 'Adán y Eva', 'Episódio completo': 'Episodio completo', 'no canal!': '¡en el canal!', 'NÃO COMA!': '¡NO LA COMAS!',
+        'EPISÓDIO 1': 'EPISODIO 1', 'EPISÓDIO 2': 'EPISODIO 2', 'Já no YouTube!': '¡Ya en YouTube!' },
+};
+const tr = s => (TRAD[LG] && TRAD[LG][s]) || s;
+const T = (str, x, y, size, o = {}) => text(TX, tr(str), x, y, { size, font: o.font || 'Gochi Hand', col: o.col || K.ink, p: 1, stroke: o.stroke ?? (o.font === 'Patrick Hand' ? 1 : 2), seed: o.seed || (x * 0.13 + y * 0.07), align: o.align });
 function sky(x0, y0, x1, y1, p = 0.5) { fill(BG.f, [[x0, y0], [x1, y0], [x1, y1], [x0, y1]], { col: K.sky, p, gap: 15, w: 14, ang: -0.25, seed: 60, boil: 0, over: 0 }); }
 function hills(yTop, x0 = -60, x1 = W + 60, amp = 30, seed = 80) {
   const top = []; for (let x = x0; x <= x1; x += 30) top.push([x, yTop + amp * Math.sin(x / 260 + seed) + amp * 0.4 * Math.sin(x / 90)]);

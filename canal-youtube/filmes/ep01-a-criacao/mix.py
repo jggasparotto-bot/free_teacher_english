@@ -9,6 +9,7 @@ LIB = os.environ.get('LIB', '/home/user/lemomo-ai/lemo-opuscar')
 sys.path.insert(0, os.path.join(LIB, 'core/audio'))
 from sfx import *
 
+VLANG = os.environ.get('VLANG', 'pt'); VDIR = 'voices' if VLANG == 'pt' else 'voices_' + VLANG   # idioma da narração
 E = json.load(open(os.path.join(HERE, 'events.json'))); DUR = E['dur']; EV = E['ev']; N = int(DUR * SR)
 tt = np.arange(N) / SR
 rng = np.random.default_rng(12)
@@ -185,7 +186,7 @@ def deess(x, lo=4800, hi=10000, thr_rel=0.5, ratio=4.0):
 VO_RMS = 10 ** (-21.0 / 20)
 vo = np.zeros((N, 2)); vmask = np.zeros(N)
 for e in [x for x in EV if x['type'] == 'voice']:
-    a, sr = sf.read(os.path.join(HERE, 'voices', e['id'] + '.wav'))
+    a, sr = sf.read(os.path.join(HERE, VDIR, e['id'] + '.wav'))
     if a.ndim > 1: a = a.mean(1)
     a = soxr.resample(a, sr, SR); a = hp(a, 75)
     a = compress(a / (np.abs(a).max() + 1e-9) * 0.8, thr=.2, ratio=2.5, att=.008, rel=.14)
@@ -220,10 +221,10 @@ mus *= (10 ** (np.interp(tt, [0, 7, 8.2, 113.6, 114.6, 131], [2, 2, 0, 0, 2, 2])
 
 mix = mus * 0.75 + buf + amb + vo
 for c in range(2): mix[:, c] = limit(mix[:, c], .95)
-sf.write(os.path.join(HERE, 'mix.wav'), mix.astype(np.float32), SR)
+sf.write(os.path.join(HERE, 'mix.wav' if VLANG == 'pt' else f'mix_{VLANG}.wav'), mix.astype(np.float32), SR)
 def db(x): return 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9)
 for name, x in [('music', mus), ('foley', buf), ('amb', amb), ('voice', vo), ('mix', mix)]: print(f'{name:6s} RMS {db(x):6.1f} dB  peak {20*np.log10(np.abs(x).max()+1e-9):6.1f}')
-dur = json.load(open(os.path.join(HERE, 'voices', 'dur.json')))
+dur = json.load(open(os.path.join(HERE, VDIR, 'dur.json')))
 worst = []
 for e in [x for x in EV if x['type'] == 'voice']:
     s = int(e['t'] * SR); L = int(dur[e['id']] * SR)

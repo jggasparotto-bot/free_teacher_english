@@ -5,6 +5,7 @@ import { group, clearGroup, part } from './rig.js';
 import { person, sheep, rabbit, lion, heart, cloud, tree, flower, giraffe, turtle, serpent, bush, house, fence, fruit } from './chars.js';
 import { mk, snap, drawBook, drawDesk, drawCrayons, turnAngle } from './book.js';
 import { PAL } from './pal.js';
+import { I, U } from './i18n.js';
 import { clamp, lerp, hash, track, ss, eo, mulberry } from '/core/lib.js';
 const K = PAL.crayon;
 const OLIVE = '#7a8f3a';
@@ -42,6 +43,7 @@ export const LINES = [
   L('l3', 116.4, 'Converse com sua família: qual é uma regra da sua casa que protege você?'),
   L('fim', 125.4, 'Inscreva-se no canal! Na próxima história: Noé e a Grande Arca.'),
 ];
+if (I) LINES.forEach(l => { l.text = I.lines[l.id]; l.d = I.dur[l.id]; });   // versão traduzida: mesmos instantes, outro texto
 export const SUBS = LINES.filter(l => l.sub).map((l, i, A) => { const t0 = l.t - 0.1; let t1 = Math.max(t0 + 1.8, l.t + l.d + 0.7); const nx = A[i + 1]; if (nx) t1 = Math.min(t1, nx.t - 0.25); return { t0, t1, text: l.text }; });
 
 const ENDT = 121.6, TURN3 = [124.0, 125.3];
@@ -70,7 +72,7 @@ const HEART = [1650, 400, 2.6];
 const TREES = [[850, 1190, 1.0], [2300, 1170, 1.1], [3120, 1160, 0.85]];
 const FLOW = [[180, K.pink], [430, K.yellow], [620, K.white], [1060, K.orange], [1780, K.pink], [2080, K.white], [2560, K.yellow], [3080, K.pink]];
 const POS = { adam: [1250, 1500, 1.2], eve: [1430, 1500, 1.15], lion: [1950, 1500, 1.1], giraffe: [2280, 1490, 1.0], turtle: [2600, 1560, 1.2], sheep: [700, 1580, 1.3], rabbit: [980, 1640, 1.1], bush: [1850, 1570, 1.1], house: [520, 1580, 1.0], child: [780, 1620, 1.0] };
-const NAMES = [['LEÃO', 1950, 1250, 30.6], ['GIRAFA', 2480, 1160, 31.3], ['TARTARUGA', 2640, 1400, 32.1]];
+const NAMES = [[U('lion', 'LEÃO'), 1950, 1250, 30.6], [U('giraffe', 'GIRAFA'), 2480, 1160, 31.3], [U('turtle', 'TARTARUGA'), 2640, 1400, 32.1]];
 const AN = { lion: 30.2, giraffe: 30.9, turtle: 31.7 };
 const BANDS = [
   { y0: 1100, y1: 1920, t0: 81.2, t1: 82.8, dir: -1, seed: 1 },
@@ -152,10 +154,10 @@ function page(comp, t, camv, { subs = true, vig = 0.3, glow = null } = {}) {
   // o coração de cera branca: está no céu desde o primeiro quadro, invisível até o entardecer
   heart({ k: WAX.k, f: WAX.f, l: WAX.f }, { x: HEART[0], y: HEART[1], s: HEART[2], col: K.white, lineCol: K.white, seed: 3300 });
   // título no canto da página
-  text(BG.l, 'Bíblia em Traços', sx(520), sy(205), { size: 70 * CAM.s, font: 'Patrick Hand', col: K.ink, reveal: pr(t, 0.2, 1.8), seed: 21, p: 0.95 });
+  text(BG.l, U('brand', 'Bíblia em Traços'), sx(520), sy(205), { size: 70 * CAM.s, font: 'Patrick Hand', col: K.ink, reveal: pr(t, 0.2, 1.8), seed: 21, p: 0.95 });
   if (t > 1.2) line(BG.l, [[330, 228], [520, 236], [710, 230]], { w: 8, col: K.red, seed: 22, draw: pr(t, 1.8, 2.3) });
-  text(BG.l, 'Adão e Eva', sx(520), sy(340), { size: 150 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 3.6, 4.8), seed: 23, p: 0.95, stroke: 2 });
-  text(BG.l, 'no Jardim do Éden', sx(520), sy(455), { size: 96 * CAM.s, font: 'Gochi Hand', col: K.green, reveal: pr(t, 4.8, 5.8), seed: 24, p: 1, stroke: 2 });
+  text(BG.l, U('title1', 'Adão e Eva'), sx(520), sy(340), { size: 150 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 3.6, 4.8), seed: 23, p: 0.95, stroke: 2 });
+  text(BG.l, U('title2', 'no Jardim do Éden'), sx(520), sy(455), { size: 96 * CAM.s, font: 'Gochi Hand', col: K.green, reveal: pr(t, 4.8, 5.8), seed: 24, p: 1, stroke: 2 });
   garden(t);
   // fruta do galho baixo (até Eva pegar)
   const taken = t > 71.2;
@@ -258,17 +260,17 @@ function drawWash(LW, t) {
 // —— final ——
 function leftPage(comp) {
   CAM.x = 960; CAM.y = 540; CAM.s = 1; clear(TXT);
-  text(TXT, 'E Deus continuou', 960, 470, { size: 92, col: K.ink, seed: 301, p: 0.95, stroke: 1.5 });
-  text(TXT, 'cuidando deles.', 960, 590, { size: 92, col: K.ink, seed: 302, p: 0.95, stroke: 1.5 });
-  text(TXT, 'Gênesis 2 e 3', 960, 720, { size: 60, col: K.ink, seed: 303, p: 0.8 });
+  text(TXT, U('left1', 'E Deus continuou'), 960, 470, { size: 92, col: K.ink, seed: 301, p: 0.95, stroke: 1.5 });
+  text(TXT, U('left2', 'cuidando deles.'), 960, 590, { size: 92, col: K.ink, seed: 302, p: 0.95, stroke: 1.5 });
+  text(TXT, U('ref', 'Gênesis 2 e 3'), 960, 720, { size: 60, col: K.ink, seed: 303, p: 0.8 });
   comp.paperCam(2000, 300, 1); comp.begin(); comp.crayon(TXT.c); comp.finish({ vig: 0, emb: 0.55 });
 }
 function endPage(comp, t) {
   CAM.x = 960; CAM.y = 540; CAM.s = 1; clear(TXT); clearGroup(OBJ);
-  text(TXT, 'Próxima história:', 960, 250, { size: 84, col: K.ink, seed: 311, p: 0.95, reveal: pr(t, 125.4, 126.2) });
-  text(TXT, 'Noé e a', 960, 400, { size: 140, font: 'Gochi Hand', col: K.sky, seed: 312, p: 1, stroke: 2, reveal: pr(t, 126.2, 126.8) });
-  text(TXT, 'Grande Arca', 960, 540, { size: 140, font: 'Gochi Hand', col: K.sky, seed: 313, p: 1, stroke: 2, reveal: pr(t, 126.8, 127.6) });
-  text(TXT, 'Inscreva-se!', 960, 700, { size: 96, font: 'Gochi Hand', col: K.red, seed: 314, p: 1, stroke: 2, reveal: pr(t, 127.6, 128.4) });
+  text(TXT, U('next', 'Próxima história:'), 960, 250, { size: 84, col: K.ink, seed: 311, p: 0.95, reveal: pr(t, 125.4, 126.2) });
+  text(TXT, U('next1', 'Noé e a'), 960, 400, { size: 140, font: 'Gochi Hand', col: K.sky, seed: 312, p: 1, stroke: 2, reveal: pr(t, 126.2, 126.8) });
+  text(TXT, U('next2', 'Grande Arca'), 960, 540, { size: 140, font: 'Gochi Hand', col: K.sky, seed: 313, p: 1, stroke: 2, reveal: pr(t, 126.8, 127.6) });
+  text(TXT, U('sub', 'Inscreva-se!'), 960, 700, { size: 96, font: 'Gochi Hand', col: K.red, seed: 314, p: 1, stroke: 2, reveal: pr(t, 127.6, 128.4) });
   const hg = pr(t, 128.4, 128.8); if (hg > 0) heart(OBJ, { x: 1290, y: 680, s: 0.55 * eo(hg), seed: 1330 });
   const rg = pr(t, 126.0, 127.4); [K.red, K.orange, K.yellow, K.green, K.sky].forEach((c, i) => { const r = 150 - i * 20; const pts = []; for (let k = 0; k <= 30; k++) { const a = Math.PI + k / 30 * Math.PI; pts.push([1620 + Math.cos(a) * r, 560 + Math.sin(a) * r]); } line(OBJ.l, pts, { w: 16, col: c, p: 1, seed: 1340 + i, draw: clamp(rg * 1.4 - i * 0.08) }); });
   comp.paperCam(4100, 700, 1); comp.begin(); comp.crayon(TXT.c); comp.group(OBJ); comp.finish({ vig: 0, emb: 0.55 });

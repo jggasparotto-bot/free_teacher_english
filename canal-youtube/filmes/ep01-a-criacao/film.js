@@ -6,6 +6,7 @@ import { group, clearGroup, part } from './rig.js';
 import { person, sheep, rabbit, lion, elephant, fish, bird, sun, moon, heart, cloud, tree, flower } from './chars.js';
 import { mk, snap, drawBook, drawDesk, drawCrayons, turnAngle } from './book.js';
 import { PAL } from './pal.js';
+import { I, U } from './i18n.js';
 import { clamp, lerp, hash, track, ss, eo, back, mulberry } from '/core/lib.js';
 const K = PAL.crayon;
 const pr = (t, a, b) => clamp((t - a) / (b - a));
@@ -41,6 +42,7 @@ export const LINES = [
   L('l4', 108.4, 'Agora converse com sua família: qual parte da criação você mais gosta?'),
   L('fim', 117.6, 'Inscreva-se no canal! Na próxima história: Adão e Eva no Jardim do Éden.'),
 ];
+if (I) LINES.forEach(l => { l.text = I.lines[l.id]; l.d = I.dur[l.id]; });   // versão traduzida: mesmos instantes, outro texto
 export const SUBS = LINES.filter(l => l.sub).map((l, i, A) => { const t0 = l.t - 0.1; let t1 = Math.max(t0 + 1.8, l.t + l.d + 0.7); const nx = A[i + 1]; if (nx) t1 = Math.min(t1, nx.t - 0.25); return { t0, t1, text: l.text }; });
 
 // —— páginas e viradas ——
@@ -151,12 +153,12 @@ const boilFor = t => (t > 92.9 && t < 113.6) ? lerp(1, 0.5, pr(t, 92.9, 94.5)) :
 function page0(comp, t, cam, { subs = true, vig = 0.3 } = {}) {
   [CAM.x, CAM.y, CAM.s] = cam; BOIL.amp = 1;
   [BG.f, BG.l, SUBK, SUBT].forEach(clear);
-  text(BG.l, 'Bíblia em Traços', sx(1600), sy(700), { size: 190 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 0.2, 2.4), seed: 21, p: 0.95, stroke: 2 });
+  text(BG.l, U('brand', 'Bíblia em Traços'), sx(1600), sy(700), { size: 190 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 0.2, 2.4), seed: 21, p: 0.95, stroke: 2 });
   const u = pr(t, 2.4, 2.9);
   if (u > 0) line(BG.l, [[960, 780], [1300, 792], [1700, 784], [2240, 790]], { w: 13, col: K.red, p: 0.95, seed: 22, draw: u });
   [[700, 520], [2500, 520], [880, 880], [2330, 900], [1600, 440]].forEach(([x, y], i) => { const g = pr(t, 0.6 + i * 0.3, 0.9 + i * 0.3); if (g > 0) starShape(BG, x, y, 26 * g, 30 + i); });
-  text(BG.l, 'A Criação', sx(1600), sy(1090), { size: 260 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 4.5, 5.8), seed: 31, p: 0.95, stroke: 2.5 });
-  text(BG.l, 'Gênesis 1 e 2', sx(1600), sy(1240), { size: 110 * CAM.s, font: 'Patrick Hand', col: K.ink, reveal: pr(t, 5.9, 6.6), seed: 32, p: 0.9 });
+  text(BG.l, U('title', 'A Criação'), sx(1600), sy(1090), { size: 260 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 4.5, 5.8), seed: 31, p: 0.95, stroke: 2.5 });
+  text(BG.l, U('ref', 'Gênesis 1 e 2'), sx(1600), sy(1240), { size: 110 * CAM.s, font: 'Patrick Hand', col: K.ink, reveal: pr(t, 5.9, 6.6), seed: 32, p: 0.9 });
   if (subs) subTo(SUBK, SUBT, t);
   comp.paperCam(CAM.x * 0.6, CAM.y * 0.6, CAM.s / 0.6); comp.begin();
   comp.crayon(BG.f.c); comp.crayon(BG.l.c); comp.knock(SUBK.c); comp.crayon(SUBT.c);
@@ -185,8 +187,8 @@ function page1(comp, t, cam, { subs = true, vig = 0.3, dim = 0, glow = null } = 
   // estrelas de cera branca: estão na página desde o primeiro quadro, invisíveis até a noite
   for (const s of STARS) { if (s.big) starShape({ f: STAR.f, l: STAR.f }, s.x, s.y, s.r, s.seed, K.white, K.white); else dab(STAR.f, s.x, s.y, s.r, { col: K.white, p: 1, seed: s.seed, gap: 3, w: 4, over: 0.5, boil: 0.25 }); }
   // Dia 1: as palavras
-  if (t > 25.9) text(BG.l, 'DIA', sx(640), sy(380), { size: 150 * CAM.s, font: 'Gochi Hand', col: K.orange, reveal: pr(t, 25.9, 26.5), seed: 41, p: 1, stroke: 2 });
-  if (t > 27.4) text(BG.l, 'NOITE', sx(2640), sy(380), { size: 150 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 27.4, 28.1), seed: 42, p: 1, stroke: 2 });
+  if (t > 25.9) text(BG.l, U('day', 'DIA'), sx(640), sy(380), { size: 150 * CAM.s, font: 'Gochi Hand', col: K.orange, reveal: pr(t, 25.9, 26.5), seed: 41, p: 1, stroke: 2 });
+  if (t > 27.4) text(BG.l, U('night', 'NOITE'), sx(2640), sy(380), { size: 150 * CAM.s, font: 'Gochi Hand', col: K.ink, reveal: pr(t, 27.4, 28.1), seed: 42, p: 1, stroke: 2 });
   // números dos dias (lógica de criança: contados no céu)
   NUM_T.slice(0, 4).forEach((t0, i) => { if (t > t0) text(BG.l, String(i + 1), sx(170 + 110 * i), sy(190), { size: 120 * CAM.s, font: 'Gochi Hand', seed: 50 + i, reveal: pr(t, t0, t0 + 0.25), p: 0.9 }); });
   // Dia 2: céu e mar
@@ -324,7 +326,7 @@ function page2(comp, t, cam, { subs = true, vig = 0.3, extra = true } = {}) {
   if (t > 106.2) {
     const g = SUBK.g; // um retalho de papel para a palavra
     const cx = sx(2470), cy = sy(1390), hw = 170 * CAM.s, hh = 80 * CAM.s; paperPatch(FG.k.g, cx, cy, hw, hh);
-    text(FX, 'VOCÊ', cx, cy + 32 * CAM.s, { size: 130 * CAM.s, font: 'Gochi Hand', col: K.red, reveal: pr(t, 106.2, 106.8), seed: 91, p: 1, stroke: 2 });
+    text(FX, U('you', 'VOCÊ'), cx, cy + 32 * CAM.s, { size: 130 * CAM.s, font: 'Gochi Hand', col: K.red, reveal: pr(t, 106.2, 106.8), seed: 91, p: 1, stroke: 2 });
     const ag = pr(t, 106.8, 107.2); if (ag > 0) { line(FX, [[2400, 1460], [2330, 1530], [2290, 1590]], { w: 8, col: K.red, seed: 92, draw: ag }); if (ag >= 1) line(FX, [[2262, 1560], [2288, 1594], [2330, 1580]], { w: 8, col: K.red, seed: 93 }); }
     const hg2 = pr(t, 107.2, 107.7); if (hg2 > 0) heart(FG, { x: 2300, y: 1330, s: 0.5 * eo(hg2) * (1 + 0.05 * Math.sin(t * 6)), seed: 1320 });
   }
@@ -345,17 +347,17 @@ function paperPatch(g, cx, cy, hw, hh) {
 // —— páginas do final ——
 function leftPage(comp) {
   CAM.x = 960; CAM.y = 540; CAM.s = 1; clear(TXT);
-  text(TXT, 'E Deus viu que tudo', 960, 470, { size: 92, col: K.ink, seed: 301, p: 0.95, stroke: 1.5 });
-  text(TXT, 'era muito bom.', 960, 590, { size: 92, col: K.ink, seed: 302, p: 0.95, stroke: 1.5 });
-  text(TXT, 'Gênesis 1 e 2', 960, 720, { size: 60, col: K.ink, seed: 303, p: 0.8 });
+  text(TXT, U('left1', 'E Deus viu que tudo'), 960, 470, { size: 92, col: K.ink, seed: 301, p: 0.95, stroke: 1.5 });
+  text(TXT, U('left2', 'era muito bom.'), 960, 590, { size: 92, col: K.ink, seed: 302, p: 0.95, stroke: 1.5 });
+  text(TXT, U('ref', 'Gênesis 1 e 2'), 960, 720, { size: 60, col: K.ink, seed: 303, p: 0.8 });
   comp.paperCam(2000, 300, 1); comp.begin(); comp.crayon(TXT.c); comp.finish({ vig: 0, emb: 0.55 });
 }
 function endPage(comp, t) {
   CAM.x = 960; CAM.y = 540; CAM.s = 1; clear(TXT); clearGroup(OBJ);
-  text(TXT, 'Próxima história:', 960, 250, { size: 84, col: K.ink, seed: 311, p: 0.95, reveal: pr(t, 117.4, 118.2) });
-  text(TXT, 'Adão e Eva no', 960, 400, { size: 140, font: 'Gochi Hand', col: K.green, seed: 312, p: 1, stroke: 2, reveal: pr(t, 118.2, 118.9) });
-  text(TXT, 'Jardim do Éden', 960, 540, { size: 140, font: 'Gochi Hand', col: K.green, seed: 313, p: 1, stroke: 2, reveal: pr(t, 118.9, 119.6) });
-  text(TXT, 'Inscreva-se!', 960, 700, { size: 96, font: 'Gochi Hand', col: K.red, seed: 314, p: 1, stroke: 2, reveal: pr(t, 119.6, 120.4) });
+  text(TXT, U('next', 'Próxima história:'), 960, 250, { size: 84, col: K.ink, seed: 311, p: 0.95, reveal: pr(t, 117.4, 118.2) });
+  text(TXT, U('next1', 'Adão e Eva no'), 960, 400, { size: 140, font: 'Gochi Hand', col: K.green, seed: 312, p: 1, stroke: 2, reveal: pr(t, 118.2, 118.9) });
+  text(TXT, U('next2', 'Jardim do Éden'), 960, 540, { size: 140, font: 'Gochi Hand', col: K.green, seed: 313, p: 1, stroke: 2, reveal: pr(t, 118.9, 119.6) });
+  text(TXT, U('sub', 'Inscreva-se!'), 960, 700, { size: 96, font: 'Gochi Hand', col: K.red, seed: 314, p: 1, stroke: 2, reveal: pr(t, 119.6, 120.4) });
   const hg = pr(t, 120.4, 120.8); if (hg > 0) heart(OBJ, { x: 1290, y: 680, s: 0.55 * eo(hg), seed: 1330 });
   const ag = pr(t, 118.0, 118.8); if (ag > 0) tree(OBJ, { x: 1610, y: 620, s: 0.75, seed: 1590, draw: ag, fill: pr(t, 118.4, 119.2), fruit: pr(t, 119.0, 119.6) });
   comp.paperCam(4100, 700, 1); comp.begin(); comp.crayon(TXT.c); comp.group(OBJ); comp.finish({ vig: 0, emb: 0.55 });
