@@ -1,5 +1,5 @@
-protocolo_lunar_ableton/Stems/
-protocolo_lunar_ableton/*.flac
-protocolo_lunar_ableton/protocolo_lunar.py
+*_ableton/Stems/
+*_ableton/*.flac
+*_ableton/*.py
 *.zip
 *.wav

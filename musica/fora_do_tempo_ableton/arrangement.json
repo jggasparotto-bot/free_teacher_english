@@ -1,0 +1,53 @@
+{
+  "bpm": 145,
+  "key": "E phrygian (breakdown in E major)",
+  "bars": 272,
+  "sample_rate": 44100,
+  "sections": {
+    "intro": {
+      "bar_start": 1,
+      "time": "0:00"
+    },
+    "build1": {
+      "bar_start": 33,
+      "time": "0:52"
+    },
+    "groove1": {
+      "bar_start": 49,
+      "time": "1:19"
+    },
+    "alarm": {
+      "bar_start": 81,
+      "time": "2:12"
+    },
+    "groove2": {
+      "bar_start": 89,
+      "time": "2:25"
+    },
+    "breakdown": {
+      "bar_start": 121,
+      "time": "3:18"
+    },
+    "build2": {
+      "bar_start": 153,
+      "time": "4:11"
+    },
+    "drop": {
+      "bar_start": 161,
+      "time": "4:24"
+    },
+    "clockbreak": {
+      "bar_start": 209,
+      "time": "5:44"
+    },
+    "drop2": {
+      "bar_start": 217,
+      "time": "5:57"
+    },
+    "outro": {
+      "bar_start": 249,
+      "time": "6:50"
+    }
+  },
+  "stem_gain_db": -6.0
+}
