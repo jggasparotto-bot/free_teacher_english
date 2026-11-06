@@ -10,6 +10,7 @@ Histórias da Bíblia desenhadas para toda a família.
 | ⭐ **Episódio 1 oficial: A Criação, no estilo giz de cera** (1080p, 2min11, narrado, trilha com instrumentos reais, legendas) | [`filmes/ep01-a-criacao/a-criacao.mp4`](filmes/ep01-a-criacao/a-criacao.mp4) |
 | 🖼️ Miniatura do episódio 1 (giz de cera) | [`filmes/ep01-a-criacao/poster.jpg`](filmes/ep01-a-criacao/poster.jpg) |
 | 🎥 Como o filme foi pensado (estrutura, planos, música, som) | [`filmes/ep01-a-criacao/TREATMENT.md`](filmes/ep01-a-criacao/TREATMENT.md) |
+| ⭐ **Episódio 2: Adão e Eva no Jardim do Éden** (giz de cera, narrado, legendas) | [`filmes/ep02-adao-e-eva/adao-e-eva.mp4`](filmes/ep02-adao-e-eva/adao-e-eva.mp4) · [miniatura](filmes/ep02-adao-e-eva/poster.jpg) · [tratamento](filmes/ep02-adao-e-eva/TREATMENT.md) |
 | 🎬 Primeira versão do piloto (desenho vetorial simples) | [`video/ep01/ep01_a_criacao.mp4`](video/ep01/ep01_a_criacao.mp4) |
 | 🎙️ Amostra das 3 vozes de narrador disponíveis (Dora, Alex, Santa) | [`video/ep01/amostra_vozes.mp3`](video/ep01/amostra_vozes.mp3) |
 | 🔊 Só o áudio do episódio (voz + trilha) | [`video/ep01/audio_narrado.mp3`](video/ep01/audio_narrado.mp3) |
@@ -22,7 +23,7 @@ Histórias da Bíblia desenhadas para toda a família.
 | Nº | História | Nº | História |
 |---|---|---|---|
 | 01 | [A Criação](roteiros/01-a-criacao.md) ✅ vídeo | 11 | [Davi e o Gigante Golias](roteiros/11-davi-e-golias.md) |
-| 02 | [Adão e Eva no Jardim do Éden](roteiros/02-adao-e-eva.md) | 12 | [Daniel na Cova dos Leões](roteiros/12-daniel-na-cova-dos-leoes.md) |
+| 02 | [Adão e Eva no Jardim do Éden](roteiros/02-adao-e-eva.md) ✅ vídeo | 12 | [Daniel na Cova dos Leões](roteiros/12-daniel-na-cova-dos-leoes.md) |
 | 03 | [Noé e a Grande Arca](roteiros/03-noe-e-a-arca.md) | 13 | [Os Três Amigos na Fornalha](roteiros/13-tres-amigos-na-fornalha.md) |
 | 04 | [A Torre de Babel](roteiros/04-torre-de-babel.md) | 14 | [Jonas e o Grande Peixe](roteiros/14-jonas.md) |
 | 05 | [Abraão e as Estrelas do Céu](roteiros/05-abraao.md) | 15 | [A Rainha Ester](roteiros/15-rainha-ester.md) |

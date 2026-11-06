@@ -221,3 +221,66 @@ O PDF para imprimir é `instagram/pinte-a-criacao-A4.pdf`. Hospede no Google Dri
 - **YouTube:** sempre "conteúdo para crianças". Nunca peça para a criança comentar; peça para ela **conversar com a família**.
 - **Instagram:** a rede é para maiores de 13 anos, então os textos falam com **os pais e professores**. Não publique fotos de crianças enviadas por seguidores sem autorização escrita dos responsáveis.
 - Use sempre a **mesma foto de perfil e o mesmo nome** nas duas redes, para as pessoas reconhecerem a marca.
+
+---
+
+### 🎬 Publicação do Episódio 2, "Adão e Eva no Jardim do Éden"
+**Arquivo:** `../filmes/ep02-adao-e-eva/adao-e-eva.mp4` · **Miniatura:** `../filmes/ep02-adao-e-eva/poster.jpg` · **Legenda:** `../filmes/ep02-adao-e-eva/adao-e-eva.srt`
+
+**Título**
+```
+ADÃO E EVA 🍎 O Jardim do Éden | História Bíblica em Desenho para Crianças | Bíblia em Traços
+```
+**Descrição**
+```
+🍎 No Jardim do Éden havia tudo de bom... e uma única regra.
+
+Nesta história desenhada em giz de cera, Adão dá nome aos animais, Deus faz Eva, e uma serpente muito esperta conta uma mentira. Quando eles desobedecem, cai a tarde no jardim, mas o amor de Deus continua lá, e Ele cuida dos dois mesmo fora do jardim.
+
+📖 Referência bíblica: Gênesis 2 e 3
+💛 Lição: as regras de Deus são como uma cerca que protege a gente, e mesmo quando a gente erra, Deus não deixa de nos amar.
+👨‍👩‍👧 Pergunta para conversar em família: qual é uma regra da sua casa que protege você?
+
+⏱️ Capítulos
+0:00 Abertura
+0:08 Uma pergunta para você
+0:14 O Jardim do Éden
+0:25 Adão dá nome aos animais
+0:35 Deus faz Eva
+0:45 A única regra
+0:58 A serpente esperta
+1:10 A escolha errada
+1:21 O entardecer no jardim
+1:31 Fora do jardim
+1:47 A lição
+2:02 Próxima história
+
+◀️ Episódio anterior: A Criação
+▶️ Próxima história: Noé e a Grande Arca
+🎨 Desenho para colorir no Instagram @bibliaemtracos
+
+Bíblia em Traços: histórias da Bíblia desenhadas para toda a família. Nova história todo sábado!
+
+#historiasbiblicas #bibliaparacriancas #adaoeeva
+```
+**Tags**
+```
+adão e eva, jardim do éden, fruto proibido, serpente, gênesis 3 para crianças, história de adão e eva, histórias bíblicas, bíblia para crianças, desenho bíblico, obediência para crianças, Bíblia em Traços
+```
+**Configurações:** iguais às do Episódio 1 (conteúdo para crianças, Educação, tela final nos últimos 20 s). Adicione o vídeo às playlists **Antigo Testamento em Desenho** e **Histórias para Dormir** (o fim é calmo, ao entardecer).
+
+**Instagram: post `posts/05-episodio-2-adao-e-eva.jpg`** · capa de Reels `capa-reels-ep02.jpg` · story `story-novo-episodio-ep02.jpg`
+```
+🍎 EPISÓDIO 2: ADÃO E EVA já está no YouTube!
+
+Um jardim lindo, cheio de flores, rios e animais... e uma única regra. Uma serpente esperta conta uma mentira, e Adão e Eva fazem uma escolha errada. Mas quando a tarde cai, um coração aparece no céu: Deus continua amando e cuidando deles. 💛
+
+💛 Lição: as regras de Deus são como uma cerca que protege a gente.
+👨‍👩‍👧 Pergunte para a criança: qual regra da nossa casa protege você?
+
+▶️ Link na bio
+📖 Gênesis 2 e 3
+
+#adaoeeva #jardimdoeden #historiasbiblicas #bibliaparacriancas #ebd
+```
+**Ideia de Reels/Short:** o trecho do entardecer (1:20–1:31), em que a aquarela atravessa o jardim e o coração branco aparece no céu.

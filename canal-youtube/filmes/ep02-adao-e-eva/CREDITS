@@ -1,0 +1,13 @@
+Bíblia em Traços · Ep. 02 · Adão e Eva no Jardim do Éden — créditos de materiais de terceiros
+
+Motor de desenho (gl.js, crayon.js, rig.js) e técnicas de virada de página, foley e cadeia de voz:
+  adaptados do estilo "Crayon Picture Book" da biblioteca Lemo-Opuscar — https://github.com/lemomo-ai/lemo-opuscar — licença MIT.
+Voz da narração: Kokoro TTS (kokoro-onnx, modelo kokoro-v1.0, voz pf_dora) — https://github.com/thewh1teagle/kokoro-onnx — licença Apache 2.0.
+Fontes: Patrick Hand (Patrick Wagesreiter) e Gochi Hand (Huerta Tipográfica) — Google Fonts — SIL Open Font License 1.1 (ver fonts/*_OFL.txt).
+Instrumentos (amostras):
+  ukulele — FreePats (freepats.zenvoid.org), CC0 1.0
+  glockenspiel, flauta doce (alto recorder), woodblock — VCSL (Versilian Community Sample Library), CC0 1.0
+  clarinete — VSCO 2 Community Edition (Versilian Studios), CC0 1.0
+  caixinha de música — síntese modal (pluck.py, Lemo-Opuscar, MIT)
+Efeitos sonoros: sintetizados em código (sem gravações de terceiros).
+Texto: paráfrase própria de Gênesis 2–3, escrita para crianças.

@@ -2,7 +2,7 @@
 // Cada página = uma imagem no tamanho exato da plataforma (?page=...&w=...&h=...).
 import { layer, clear, line, fill, dab, text, handCircle, ellipse, smooth, CAM, BOIL, W, H } from './crayon.js';
 import { group, clearGroup, part } from './rig.js';
-import { person, sheep, rabbit, lion, elephant, fish, bird, sun, moon, heart, cloud, tree, flower } from './chars.js';
+import { person, sheep, rabbit, lion, elephant, fish, bird, sun, moon, heart, cloud, tree, flower, serpent, fruit, bush } from './chars.js';
 import { PAL } from './pal.js';
 import { hash, mulberry } from '/core/lib.js';
 const K = PAL.crayon;
@@ -75,9 +75,9 @@ export function draw(comp, page) {
     sun(TOP, { x: 260, y: 300, R: 120, face: 1, seed: 1100 });
     hills(880);
     [[300, 0.85], [2300, 0.8]].forEach(([x, s], i) => tree(G, { x, y: 900, s, seed: 1500 + i * 20 }));
-    sheep(TOP, { x: 170, y: 1000, s: 1.4, seed: 500 }); person(TOP, { x: 360, y: 1010, s: 0.95, kind: 'adam', seed: 2000, armR: [[34, -196], [62, -160], [74, -126]] }); person(TOP, { x: 500, y: 1010, s: 0.92, kind: 'eve', seed: 2200, expr: 'happy', armL: [[-34, -196], [-62, -160], [-78, -126]] });
-    lion(TOP, { x: 2080, y: 1010, s: 0.95, seed: 700 }); elephant(TOP, { x: 2390, y: 1010, s: 0.9, seed: 800 });
-    patch(TK, 1280, 715, 760, 215);
+    sheep(TOP, { x: 120, y: 1000, s: 1.4, seed: 500 }); person(TOP, { x: 290, y: 1010, s: 0.95, kind: 'adam', seed: 2000, armR: [[34, -196], [62, -160], [74, -126]] }); person(TOP, { x: 425, y: 1010, s: 0.92, kind: 'eve', seed: 2200, expr: 'happy', armL: [[-34, -196], [-62, -160], [-78, -126]] });
+    lion(TOP, { x: 2170, y: 1010, s: 0.95, seed: 700 }); elephant(TOP, { x: 2420, y: 1010, s: 0.9, seed: 800 });
+    patch(TK, 1280, 715, 700, 215);
     T('Bíblia em Traços', 1280, 690, 190);
     T('Histórias da Bíblia desenhadas para toda a família', 1280, 790, 62, { font: 'Patrick Hand' });
     T('Nova história todo sábado!', 1280, 878, 64, { col: K.red });
@@ -154,6 +154,25 @@ export function draw(comp, page) {
       T('Episódio completo', 540, 1440, 96, { col: K.red }); T('no canal!', 540, 1550, 96, { col: K.red });
       hills(1700); sheep(TOP, { x: 200, y: 1880, s: 1.4, seed: 500 }); person(TOP, { x: 540, y: 1890, s: 0.8, kind: 'child', seed: 2400, expr: 'wow', armR: [[34, -196], [80, -230], [100, -290]] }); rabbit(TOP, { x: 880, y: 1890, s: 1.3, seed: 600 });
     }
+  }
+  if (P === 'thumb_ep02' || P === 'reel_ep02' || P === 'post_ep02') {   // miniatura / capa / post do Ep. 02
+    const tall = H > W, k = tall ? 1 : 1;
+    const cx = P === 'thumb_ep02' ? 1180 : P === 'reel_ep02' ? 430 : 330, base = P === 'reel_ep02' ? 1560 : P === 'post_ep02' ? 1180 : 1010, s = P === 'reel_ep02' ? 1.25 : P === 'post_ep02' ? 1.25 : 1.25;
+    sky(-60, -60, W + 60, base - 330 * s, 0.5); hills(base - 330 * s + 10);
+    // árvore especial (copa dourada) com a serpente no galho
+    const tx = cx + 230 * s, ty = base - 40 * s;
+    part(G, [[tx - 30 * s, ty], [tx - 24 * s, ty - 230 * s], [tx + 24 * s, ty - 230 * s], [tx + 30 * s, ty], [tx - 30 * s, ty]], { col: K.brown, p: 0.9, gap: 8, w: 10, ang: 1.5, seed: 3100 }, { w: 8, col: K.ink, seed: 3101 });
+    const crown = []; for (let i = 0; i <= 80; i++) { const a = i / 80 * 6.283; const b = 1 + 0.12 * Math.abs(Math.sin(a * 5)); crown.push([tx + Math.cos(a) * 190 * s * b, ty - 380 * s + Math.sin(a) * 160 * s * b]); }
+    part(G, crown, { col: K.yellow, p: 0.95, gap: 11, w: 13, ang: 0.8, seed: 3103, cross: true, crossP: 0.5 }, { w: 8, col: K.orange, seed: 3104 });
+    [[-90, -420], [70, -440], [110, -320], [-30, -300], [-130, -330]].forEach(([dx, dy], i) => fruit(G, tx + dx * s, ty + dy * s, 22 * s, 3200 + i * 7));
+    serpent(TOP, { x: tx - 40 * s, y: ty - 300 * s, s: 1.45 * s, flip: true, seed: 1900, tongue: true, look: -1 });
+    person(TOP, { x: cx - 170 * s, y: base, s: 1.15 * s, kind: 'adam', seed: 2000, expr: 'wow' });
+    person(TOP, { x: cx + 10 * s, y: base, s: 1.1 * s, kind: 'eve', seed: 2200, expr: 'wow', armR: [[34, -196], [66, -215], [86, -240]] });
+    fruit(TOP, cx + 10 * s + 92 * 1.1 * s, base - 258 * 1.1 * s, 30 * s, 3290);
+    if (P === 'thumb_ep02') { patch(TK, 420, 230, 360, 165); T('NÃO COMA!', 420, 200, 120, { col: K.red }); T('Adão e Eva', 420, 320, 100);
+      patch(TK, 300, 1000, 250, 44); T('Bíblia em Traços', 300, 1018, 60, { font: 'Patrick Hand' }); }
+    else { patch(TK, 540, tall ? 300 : 210, 400, 160); T(tall ? 'EPISÓDIO 2' : 'EPISÓDIO 2', 540, tall ? 250 : 165, 70, { col: K.red }); T('Adão e Eva', 540, tall ? 370 : 280, 140);
+      patch(TK, 540, H - 110, 320, 46); T(P === 'post_ep02' ? 'Já no YouTube!' : 'Bíblia em Traços', 540, H - 90, 64, { font: 'Patrick Hand' }); }
   }
   if (P.startsWith('hl_')) {   // destaques do Instagram 1080×1920 (o ícone fica no centro do círculo)
     const col = { hl_episodios: K.yellow, hl_colorir: K.pink, hl_versiculos: K.sky, hl_sobre: K.green, hl_novidades: K.orange }[P];

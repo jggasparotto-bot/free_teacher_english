@@ -27,6 +27,7 @@ function face(C, P, o, sd, skin) {
   [[-38, 22], [38, 22]].forEach(([x, y], i) => dab(C.f, ...P([[x, y]])[0], 10 * (o.s || 1), { col: K.pink, p: 0.8 * (o.blush ?? 1) * (o.fill ?? 1), seed: sd + 8 + i, sq: 0.75 }));
   if (ex === 'sing' || ex === 'wow') part(C, P(ellipse(0, 30, 8, 10, 18)), { col: K.red, p: 0.85, gap: 3, w: 4, over: 0.5, seed: sd + 10, draw: o.fill ?? 1 }, lo(sd + 11, o, { w: 4.5 }), { occ: false });
   else if (ex === 'sleep') line(C.l, P([[-7, 28], [0, 32], [7, 28]]), lo(sd + 12, o, { w: 4.5 }));
+  else if (ex === 'sad') { line(C.l, P([[-12, 34], [-5, 27], [5, 27], [12, 34]]), lo(sd + 12, o, { w: 4.5 })); [[-22, 2], [22, 2]].forEach(([x], i) => line(C.l, P([[x - 11, -16 + (i ? 4 : -4) * -1], [x + 11, -16 - (i ? 4 : -4) * -1]]), lo(sd + 15 + i, o, { w: 4 }))); }
   else part(C, P([[-13, 24], [-6, 34], [6, 34], [13, 24]]), { col: K.red, p: 0.8, gap: 3, w: 4, over: 0.5, seed: sd + 13, draw: o.fill ?? 1 }, lo(sd + 14, o, { w: 4.5 }), { occ: false });
 }
 
@@ -36,7 +37,7 @@ export function person(C, o) {
   const T = T0(o), P = pts => T(pts), sd = o.seed || 2000, kind = o.kind || 'adam';
   const skinCol = kind === 'adam' ? K.brown : K.peach;
   const skinF = fo(skinCol, sd + 1, o, { p: kind === 'adam' ? 0.42 : 0.6, gap: 10, w: 12, ang: 0.6, over: 3 });
-  const clothCol = kind === 'child' ? K.yellow : K.green;
+  const clothCol = o.cloth || (kind === 'child' ? K.yellow : K.green);
   const clothF = fo(clothCol, sd + 2, o, { p: 0.82, gap: 10, w: 12, ang: kind === 'eve' ? -0.4 : 0.35, cross: kind !== 'child', crossP: 0.4 });
   const hairCol = kind === 'eve' ? K.orange : kind === 'adam' ? K.ink : K.brown;
   const hairF = fo(hairCol, sd + 3, o, { p: 0.9, gap: 7, w: 9, ang: 1.2, over: 2 });
@@ -45,7 +46,8 @@ export function person(C, o) {
   // cabelo comprido atrás (Eva)
   if (kind === 'eve') part(C, P(smooth([[-70, -300], [-84, -230], [-80, -160], [-50, -150], [0, -170], [50, -150], [80, -160], [84, -230], [70, -300], [0, -330]], 6)), hairF, lo(sd + 4, o));
   // pernas e pés
-  [[[-17, -96], [-18, -52], [-20, -14]], [[17, -96], [18, -52], [20, -14]]].forEach((lg, i) => {
+  const wk = o.walk === undefined ? 0 : Math.sin(o.walk);
+  [[[-17, -96], [-18 + 10 * wk, -52], [-20 + 22 * wk, -14 - 8 * Math.max(0, wk)]], [[17, -96], [18 - 10 * wk, -52], [20 - 22 * wk, -14 - 8 * Math.max(0, -wk)]]].forEach((lg, i) => {
     limb(lg, 20, skinF, sd + 10 + i * 3);
     part(C, P(ellipse(lg[2][0] + (i ? 8 : -8), -6, 18, 9, 18)), skinF, lo(sd + 11 + i * 3, o));
   });
@@ -56,7 +58,11 @@ export function person(C, o) {
   const hemY = kind === 'child' ? -92 : -84;
   const body = smooth([[-30, -206], [30, -206], [48, -182], [66, hemY], [-66, hemY], [-48, -182]], 3);
   part(C, P(body), clothF, lo(sd + 20, o));
-  if (kind !== 'child') {   // barra de folhas
+  if (o.fur) {   // roupas quentinhas: pele marrom riscada por cima das folhas
+    fill(C.f, P(body), { col: K.brown, p: 0.95 * o.fur, gap: 7, w: 10, ang: -0.6, seed: sd + 25, draw: o.fur, cross: true, crossP: 0.6 });
+    if (o.fur >= 1) [[-30, -170], [10, -140], [-14, -110], [30, -116]].forEach(([x, y], i) => line(C.l, P(curve([[x - 8, y], [x, y - 6], [x + 8, y]])), lo(sd + 26 + i, o, { w: 3.5, col: K.ink, p: 0.6 })));
+  }
+  if (kind !== 'child' && !(o.fur >= 1)) {   // barra de folhas
     for (let i = 0; i < 6; i++) {
       const x0 = -66 + i * 22;
       const leaf = smooth([[x0, hemY - 2], [x0 + 11, hemY + 24], [x0 + 22, hemY - 2], [x0 + 11, hemY + 6]], 4);
@@ -217,7 +223,7 @@ export function moon(C, o) {
 export function heart(C, o) {
   const s = o.s || 1, x = o.x, y = o.y;
   const pts = []; for (let i = 0; i <= 50; i++) { const a = i / 50 * Math.PI * 2; const hx = 16 * Math.pow(Math.sin(a), 3), hy = 13 * Math.cos(a) - 5 * Math.cos(2 * a) - 2 * Math.cos(3 * a) - Math.cos(4 * a); pts.push([x + hx * 3.4 * s, y - hy * 3.4 * s]); }
-  part(C, pts, { col: o.col || K.red, p: 1, gap: 6, w: 8, seed: o.seed || 1300, ang: 0.7, draw: o.fill ?? 1 }, { w: 6, col: K.ink, seed: (o.seed || 1300) + 1, draw: o.draw ?? 1 });
+  part(C, pts, { col: o.col || K.red, p: 1, gap: 6, w: 8, seed: o.seed || 1300, ang: 0.7, draw: o.fill ?? 1 }, { w: 6, col: o.lineCol || K.ink, seed: (o.seed || 1300) + 1, draw: o.draw ?? 1 });
 }
 
 // ——— nuvem (cera branca + contorno) ———
@@ -244,4 +250,69 @@ export function flower(C, o) {
   const k = clamp((g - 0.6) / 0.4);
   for (let i = 0; i < 5; i++) { const a = i / 5 * 6.28; dab(C.f, x + 3 * s + Math.cos(a) * 15 * s, y - 60 * s + Math.sin(a) * 15 * s, 11 * s * k, { col: o.col || K.pink, p: 0.95, seed: sd + 1 + i }); }
   dab(C.f, x + 3 * s, y - 60 * s, 8 * s * k, { col: K.yellow, p: 1, seed: sd + 7 });
+}
+
+// ———————— novos no Ep. 02 ————————
+export function giraffe(C, o) {
+  const T = T0(o), P = pts => T(pts), sd = o.seed || 1700, s = o.s || 1;
+  const F = fo(K.yellow, sd + 1, o, { p: 0.85, gap: 9, w: 11, ang: 0.5, cross: true, crossP: 0.35 });
+  [[-50, 0], [-26, 0], [30, 0], [54, 0]].forEach(([x], i) => part(C, P(tube([[x, -120], [x, -6]], 16)), F, lo(sd + 10 + i, o)));
+  part(C, P(ellipse(0, -150, 80, 46, 30)), F, lo(sd + 20, o));
+  part(C, P(tube(curve([[48, -170], [70, -260], [86, -350]]), 30, 22)), F, lo(sd + 21, o));
+  part(C, P(ellipse(100, -372, 40, 26, 24, 0, 6.3, 0.2)), F, lo(sd + 22, o));
+  [[86, -400], [104, -404]].forEach(([x, y], i) => { line(C.l, P([[x, y + 8], [x, y - 14]]), lo(sd + 23 + i, o, { w: 5 })); dab(C.l, ...P([[x, y - 16]])[0], 5 * s, { col: K.brown, p: o.fill ?? 1, seed: sd + 25 + i }); });
+  [[-30, -160, 14], [20, -140, 12], [-4, -176, 10], [52, -150, 9], [64, -230, 9], [78, -300, 8], [-52, -136, 9]].forEach(([x, y, r], i) => dab(C.f, ...P([[x, y]])[0], r * s, { col: K.orange, p: 0.9 * (o.fill ?? 1), seed: sd + 30 + i }));
+  if (o.expr === 'sleep') line(C.l, P([[106, -380], [112, -376], [118, -380]]), lo(sd + 40, o, { w: 4 }));
+  else { dab(C.l, ...P([[112, -380]])[0], 4.5 * s, { col: K.ink, p: o.fill ?? 1, seed: sd + 40 }); dab(C.l, ...P([[113.5, -382]])[0], 1.6 * s, { col: K.white, p: o.fill ?? 1, seed: sd + 41 }); }
+  line(C.l, P([[124, -362], [132, -358]]), lo(sd + 42, o, { w: 4 }));
+}
+export function turtle(C, o) {
+  const T = T0(o), P = pts => T(pts), sd = o.seed || 1800, s = o.s || 1;
+  const skin = fo(K.green, sd + 1, o, { p: 0.6, gap: 7, w: 9 });
+  [[-40, -6], [36, -6]].forEach(([x, y], i) => part(C, P(ellipse(x, y, 16, 10, 16)), skin, lo(sd + 2 + i, o, { w: 5 })));
+  part(C, P(handCircle(66, -34, 22, sd + 4, 0, 20)), skin, lo(sd + 5, o, { w: 5 }));
+  const shell = []; for (let i = 0; i <= 40; i++) { const a = Math.PI + i / 40 * Math.PI; shell.push([Math.cos(a) * 62, -10 + Math.sin(a) * 52]); }
+  part(C, P(shell), fo(K.brown, sd + 6, o, { p: 0.8, gap: 8, w: 10, cross: true, crossP: 0.4 }), lo(sd + 7, o));
+  [[-30, -34], [0, -46], [30, -34]].forEach(([x, y], i) => line(C.l, P(handCircle(x, y, 12, sd + 8 + i, 0, 14)), lo(sd + 11 + i, o, { w: 4, col: K.orange })));
+  dab(C.l, ...P([[74, -40]])[0], 3.6 * s, { col: K.ink, p: o.fill ?? 1, seed: sd + 14 });
+  line(C.l, P([[74, -26], [80, -24], [86, -27]]), lo(sd + 15, o, { w: 3.5 }));
+}
+// serpente curiosa (não assustadora): corpo em S enrolado num galho, olhos grandes, língua
+export function serpent(C, o) {
+  const T = T0(o), P = pts => T(pts), sd = o.seed || 1900, s = o.s || 1;
+  const body = [[-120, 30], [-80, -10], [-30, 20], [20, -14], [60, 12], [92, -20], [110, -60]];
+  part(C, P(tube(curve(body, 6), 26, 20)), fo('#7a8f3a', sd + 1, o, { p: 0.95, gap: 7, w: 9, ang: 0.9 }), lo(sd + 2, o));
+  [[-90, 2], [-40, 10], [10, -2], [56, 2], [96, -36]].forEach(([x, y], i) => dab(C.f, ...P([[x, y]])[0], 5 * s, { col: K.yellow, p: o.fill ?? 1, seed: sd + 3 + i }));
+  part(C, P(ellipse(126, -82, 30, 22, 24, 0, 6.3, -0.5)), fo('#7a8f3a', sd + 10, o, { p: 0.95, gap: 6, w: 8 }), lo(sd + 11, o));
+  [[118, -94], [138, -100]].forEach(([x, y], i) => { part(C, P(handCircle(x, y, 8, sd + 12 + i, 0, 14)), fo(K.white, sd + 14 + i, o, { p: 1, gap: 3, w: 5 }), lo(sd + 16 + i, o, { w: 3.5 }), { occ: false }); dab(C.l, ...P([[x + 2 + (o.look || 0) * 3, y + 1]])[0], 3.4 * s, { col: K.ink, p: o.fill ?? 1, seed: sd + 18 + i }); });
+  if (o.tongue) line(C.l, P([[150, -70], [170, -66], [178, -74], [172, -64], [180, -58]]), lo(sd + 20, o, { w: 3.5, col: K.red }));
+  line(C.l, P([[128, -66], [140, -68], [150, -72]]), lo(sd + 21, o, { w: 3.5 }));
+}
+export function bush(C, o) {
+  const x = o.x, y = o.y, s = o.s || 1, sd = o.seed || 1950;
+  const pts = []; for (let i = 0; i <= 90; i++) { const a = Math.PI + i / 90 * Math.PI; const b = 1 + 0.14 * Math.abs(Math.sin(a * 5)); pts.push([x + Math.cos(a) * 240 * s * b, y + Math.sin(a) * 170 * s * b]); }
+  pts.push([x + 240 * s, y + 20 * s], [x - 240 * s, y + 20 * s]);
+  part(C, pts, { col: '#7a8f3a', p: 0.9, gap: 10, w: 12, seed: sd, ang: 0.9, cross: true, crossP: 0.5, draw: o.fill ?? 1 }, { w: 7, col: K.ink, seed: sd + 1, draw: o.draw ?? 1 });
+  [[-120, -80], [40, -120], [140, -50], [-30, -40]].forEach(([dx, dy], i) => dab(C.f, x + dx * s, y + dy * s, 12 * s, { col: K.pink, p: 0.9 * (o.fill ?? 1), seed: sd + 5 + i }));
+}
+export function house(C, o) {
+  const x = o.x, y = o.y, s = o.s || 1, sd = o.seed || 1960;
+  const wall = [[x - 130 * s, y], [x - 130 * s, y - 180 * s], [x + 130 * s, y - 180 * s], [x + 130 * s, y]];
+  part(C, wall, { col: K.peach, p: 0.85, gap: 9, w: 11, seed: sd, ang: -0.4, draw: o.fill ?? 1 }, { w: 7, col: K.ink, seed: sd + 1, draw: o.draw ?? 1 });
+  part(C, [[x - 165 * s, y - 175 * s], [x, y - 320 * s], [x + 165 * s, y - 175 * s]], { col: K.red, p: 0.9, gap: 9, w: 11, seed: sd + 2, ang: 0.6, draw: o.fill ?? 1 }, { w: 7, col: K.ink, seed: sd + 3, draw: o.draw ?? 1 });
+  part(C, [[x - 30 * s, y], [x - 30 * s, y - 95 * s], [x + 30 * s, y - 95 * s], [x + 30 * s, y]], { col: K.brown, p: 0.9, gap: 7, w: 9, seed: sd + 4, ang: 1.4, draw: o.fill ?? 1 }, { w: 6, col: K.ink, seed: sd + 5, draw: o.draw ?? 1 });
+  part(C, [[x + 60 * s, y - 140 * s], [x + 110 * s, y - 140 * s], [x + 110 * s, y - 95 * s], [x + 60 * s, y - 95 * s]], { col: K.yellow, p: 1, gap: 6, w: 8, seed: sd + 6, draw: o.fill ?? 1 }, { w: 6, col: K.ink, seed: sd + 7, draw: o.draw ?? 1 });
+}
+export function fence(C, o) {   // cerca de giz: estacas desenhadas uma a uma (o.g = progresso)
+  const g = o.g ?? 1, pts = o.pts, sd = o.seed || 1980;
+  const n = pts.length - 1;
+  for (let i = 0; i <= n; i++) { if (i / n > g) break; const [x, y] = pts[i]; part(C, [[x - 12, y], [x - 12, y - 90], [x, y - 108], [x + 12, y - 90], [x + 12, y]], { col: K.white, p: 1, gap: 5, w: 7, seed: sd + i * 3 }, { w: 5, col: K.brown, seed: sd + i * 3 + 1 }); }
+  if (g > 0.3) for (const h of [-34, -70]) line(C.l, pts.slice(0, Math.max(2, Math.ceil((n + 1) * g))).map(([x, y]) => [x, y + h]), { w: 6, col: K.brown, seed: sd + 200 + h, draw: clamp((g - 0.3) / 0.7) });
+}
+export function fruit(C, x, y, r = 22, sd = 2990, bite = 0) {
+  const pts = handCircle(x, y, r, sd, 0, 30);
+  part(C, pts, { col: K.red, p: 1, gap: 4, w: 6, seed: sd }, { w: 5, col: K.ink, seed: sd + 1 });
+  line(C.l, [[x, y - r], [x + 4, y - r - 14]], { w: 4, col: K.brown, seed: sd + 2 });
+  dab(C.l, x - r * 0.35, y - r * 0.35, r * 0.22, { col: K.white, p: 1, seed: sd + 3 });
+  if (bite > 0) { const bx = x + r * 0.8, by = y - r * 0.1; part(C, handCircle(bx, by, r * 0.5, sd + 4, 0, 16), { col: K.peach, p: 0.5, gap: 3, w: 4, seed: sd + 5 }, null); }
 }

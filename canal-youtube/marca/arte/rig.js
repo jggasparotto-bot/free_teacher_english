@@ -16,7 +16,10 @@ export function part(C, poly, fo, lo, { occ = true, kn = true } = {}) {
   if (occ) { erase(C.l, poly); if (fo) erase(C.f, poly); }
   if (kn) knock(C, poly);
   if (fo) fill(C.f, poly, fo);
-  if (lo) line(C.l, [...poly, poly[1] || poly[0]], lo);
+  if (lo) {   // contorno fechado: volta ao primeiro ponto (e um pouco além, para a junta não abrir)
+    const f = poly[0], l = poly[poly.length - 1], closed = Math.hypot(f[0] - l[0], f[1] - l[1]) < 1e-6;
+    line(C.l, closed ? [...poly, poly[1] || poly[0]] : [...poly, f, poly[1] || f], lo);
+  }
 }
 
 // Limb tube: offset both sides of a polyline + round caps, returns a closed polygon
