@@ -1,0 +1,150 @@
+{
+ "title": "Abraão e as Estrelas do Céu",
+ "ref": "Gênesis 12:1–5; 15:1–6; 21:1–7",
+ "lesson": "Deus cumpre suas promessas no tempo certo, mesmo quando parece impossível.",
+ "next": "José e a Túnica Colorida",
+ "scenes": [
+  {
+   "key": "gancho",
+   "name": "Gancho",
+   "visual": "Céu noturno com milhares de estrelas; um senhor de barba branca olha para cima.",
+   "lines": [
+    "gancho_1",
+    "gancho_2"
+   ]
+  },
+  {
+   "key": "s1",
+   "name": "O chamado",
+   "visual": "Abrão diante da sua casa na cidade de Ur; luz suave do alto.",
+   "lines": [
+    "s1_1",
+    "s1_2",
+    "s1_3"
+   ]
+  },
+  {
+   "key": "s2",
+   "name": "A grande viagem",
+   "visual": "caravana de camelos, ovelhas, tendas; Abrão e Sarai caminhando pelo deserto; um mapa pontilhado se desenha.",
+   "lines": [
+    "s2_1",
+    "s2_2"
+   ]
+  },
+  {
+   "key": "s3",
+   "name": "Um sonho guardado",
+   "visual": "Abrão e Sarai idosos sentados na tenda, olhando um bercinho vazio.",
+   "lines": [
+    "s3_1",
+    "s3_2",
+    "s3_3"
+   ]
+  },
+  {
+   "key": "s4",
+   "name": "Conte as estrelas",
+   "visual": "Deus leva Abrão para fora da tenda; as estrelas vão aparecendo uma por uma e depois aos milhares.",
+   "lines": [
+    "s4_1",
+    "s4_2"
+   ]
+  },
+  {
+   "key": "s5",
+   "name": "Abraão acredita",
+   "visual": "Abrão sorri com lágrimas nos olhos; as estrelas se juntam em forma de coração por um segundo.",
+   "lines": [
+    "s5_1",
+    "s5_2"
+   ]
+  },
+  {
+   "key": "s6",
+   "name": "Sara ri",
+   "visual": "três visitantes na porta da tenda; Sara escondida atrás da cortina, dando risada.",
+   "lines": [
+    "s6_1",
+    "s6_2"
+   ]
+  },
+  {
+   "key": "s7",
+   "name": "Isaque, o riso",
+   "visual": "Sara segurando um bebê sorridente, Abraão dançando de alegria; confetes de estrelas.",
+   "lines": [
+    "s7_1",
+    "s7_2",
+    "s7_3"
+   ]
+  },
+  {
+   "key": "licao",
+   "name": "Lição",
+   "visual": "",
+   "lines": [
+    "licao_1",
+    "licao_2",
+    "licao_3",
+    "licao_4"
+   ]
+  }
+ ],
+ "subs": {
+  "vinheta": "Bíblia em Traços!",
+  "titulo": "Abraão e as Estrelas do Céu.",
+  "gancho_1": "Você consegue contar as estrelas do céu?",
+  "gancho_2": "Deus pediu para um homem tentar!",
+  "s1_1": "Havia um homem chamado Abrão.",
+  "s1_2": "Um dia Deus disse a ele: “Saia da sua terra e vá para um lugar que eu vou mostrar.”",
+  "s1_3": "“Eu vou abençoar você!”",
+  "s2_1": "Abrão não sabia para onde estava indo, mas confiou em Deus.",
+  "s2_2": "Ele juntou sua esposa Sarai, os empregados e os animais, e partiu.",
+  "s3_1": "Abrão e Sarai tinham um sonho: ter um filho.",
+  "s3_2": "Mas eles já estavam bem velhinhos.",
+  "s3_3": "Parecia impossível.",
+  "s4_1": "Numa noite, Deus disse: “Olhe para o céu e conte as estrelas, se puder.”",
+  "s4_2": "“Assim será a sua família: tão grande quanto as estrelas!”",
+  "s5_1": "Abrão acreditou em Deus.",
+  "s5_2": "E Deus mudou o nome dele para Abraão, que quer dizer “pai de muitos”, e o de Sarai para Sara.",
+  "s6_1": "Um dia, visitantes enviados por Deus disseram: “No ano que vem, Sara terá um filho!”",
+  "s6_2": "Sara riu baixinho: “Na minha idade?”",
+  "s7_1": "E Deus cumpriu a promessa!",
+  "s7_2": "Sara teve um menino, e eles o chamaram de Isaque, que quer dizer “riso”.",
+  "s7_3": "Agora era a alegria que fazia Sara rir!",
+  "licao_1": "Nada é impossível para Deus.",
+  "licao_2": "Às vezes temos que esperar, mas Ele sempre cumpre o que promete.",
+  "licao_3": "Converse com sua família: hoje à noite, olhem juntos para o céu.",
+  "licao_4": "Quantas estrelas vocês conseguem contar?",
+  "fim": "Inscreva-se no canal! Na próxima história: José e a Túnica Colorida."
+ },
+ "dur": {
+  "vinheta": 1.423,
+  "titulo": 1.97,
+  "gancho_1": 2.72,
+  "gancho_2": 2.188,
+  "s1_1": 1.912,
+  "s1_2": 4.777,
+  "s1_3": 1.745,
+  "s2_1": 3.757,
+  "s2_2": 4.224,
+  "s3_1": 2.5,
+  "s3_2": 2.412,
+  "s3_3": 1.56,
+  "s4_1": 4.405,
+  "s4_2": 3.482,
+  "s5_1": 1.87,
+  "s5_2": 5.51,
+  "s6_1": 5.249,
+  "s6_2": 2.209,
+  "s7_1": 1.836,
+  "s7_2": 4.224,
+  "s7_3": 2.583,
+  "licao_1": 2.126,
+  "licao_2": 3.865,
+  "licao_3": 3.945,
+  "licao_4": 2.613,
+  "fim": 4.201
+ }
+}

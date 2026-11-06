@@ -1,0 +1,151 @@
+{
+ "title": "Noé e a Grande Arca",
+ "ref": "Gênesis 6–9",
+ "lesson": "Deus cuida de quem confia nele e cumpre suas promessas.",
+ "next": "A Torre de Babel",
+ "scenes": [
+  {
+   "key": "gancho",
+   "name": "Gancho",
+   "visual": "Um homem martelando uma madeira gigante em pleno sol, sem nenhuma nuvem no céu.",
+   "lines": [
+    "gancho_1"
+   ]
+  },
+  {
+   "key": "s1",
+   "name": "Um mundo triste",
+   "visual": "cidade de pessoas brigando, de cara emburrada, em tons cinzentos; Noé e sua família em cores vivas, sorrindo.",
+   "lines": [
+    "s1_1",
+    "s1_2"
+   ]
+  },
+  {
+   "key": "s2",
+   "name": "A ordem de Deus",
+   "visual": "Noé olhando para o céu, com luz sobre ele; aparece uma planta (desenho técnico) da arca.",
+   "lines": [
+    "s2_1",
+    "s2_2"
+   ]
+  },
+  {
+   "key": "s3",
+   "name": "Construindo a arca",
+   "visual": "montagem rápida, com o sol nascendo e se pondo várias vezes: tábuas, martelos, os filhos ajudando; vizinhos rindo e apontando.",
+   "lines": [
+    "s3_1",
+    "s3_2",
+    "s3_3"
+   ]
+  },
+  {
+   "key": "s4",
+   "name": "Os animais chegam",
+   "visual": "fila animada, dois a dois: elefantes, girafas (abaixando o pescoço na porta), coelhos, pinguins, tartarugas bem lentas.",
+   "lines": [
+    "s4_1"
+   ]
+  },
+  {
+   "key": "s5",
+   "name": "A porta se fecha",
+   "visual": "a grande porta se fecha sozinha com uma luz; primeiras gotas caem; trovão suave.",
+   "lines": [
+    "s5_1",
+    "s5_2"
+   ]
+  },
+  {
+   "key": "s6",
+   "name": "Quarenta dias de chuva",
+   "visual": "a arca flutuando em mar calmo, de dia e de noite; dentro, animais dormindo juntinhos e Noé contando histórias. Nada de cenas de afogamento.",
+   "lines": [
+    "s6_1",
+    "s6_2",
+    "s6_3"
+   ]
+  },
+  {
+   "key": "s7",
+   "name": "A pomba e o raminho",
+   "visual": "Noé solta uma pomba branca pela janela; ela volta com um raminho de oliveira no bico.",
+   "lines": [
+    "s7_1",
+    "s7_2",
+    "s7_3"
+   ]
+  },
+  {
+   "key": "s8",
+   "name": "O arco-íris",
+   "visual": "a arca no alto do monte, os animais saindo felizes, um arco-íris gigante se desenhando no céu, cor por cor.",
+   "lines": [
+    "s8_1",
+    "s8_2"
+   ]
+  },
+  {
+   "key": "licao",
+   "name": "Lição",
+   "visual": "",
+   "lines": [
+    "licao_1",
+    "licao_2"
+   ]
+  }
+ ],
+ "subs": {
+  "vinheta": "Bíblia em Traços!",
+  "titulo": "Noé e a Grande Arca.",
+  "gancho_1": "Imagina construir um barco gigante... no meio do deserto, longe do mar?",
+  "s1_1": "Muito tempo depois de Adão e Eva, as pessoas esqueceram de Deus e só faziam coisas ruins.",
+  "s1_2": "Mas havia um homem bom que amava a Deus: o nome dele era Noé.",
+  "s2_1": "Deus disse a Noé: “Vai chover muito e as águas vão cobrir a terra.”",
+  "s2_2": "“Construa uma arca bem grande, para você, sua família e os animais.”",
+  "s3_1": "Noé e seus filhos trabalharam por muitos e muitos anos.",
+  "s3_2": "As pessoas riam: “Barco? Aqui? Que bobagem!”",
+  "s3_3": "Mas Noé confiava em Deus.",
+  "s4_1": "Então os animais começaram a chegar, de dois em dois: elefantes, girafas, leões, coelhinhos... até as tartarugas, devagarinho!",
+  "s5_1": "Quando todos entraram, o próprio Deus fechou a porta.",
+  "s5_2": "E começou a chover... e chover... e chover.",
+  "s6_1": "Choveu quarenta dias e quarenta noites.",
+  "s6_2": "A água cobriu até as montanhas.",
+  "s6_3": "Mas dentro da arca, todos estavam seguros, porque Deus cuidava deles.",
+  "s7_1": "Quando a chuva parou, Noé soltou uma pomba.",
+  "s7_2": "Ela voltou com uma folhinha de oliveira no bico.",
+  "s7_3": "Era sinal de que a terra estava aparecendo!",
+  "s8_1": "Noé e todos saíram da arca, e Noé agradeceu a Deus.",
+  "s8_2": "E Deus colocou um arco-íris no céu e prometeu: “Nunca mais a água vai cobrir toda a terra.”",
+  "licao_1": "Toda vez que você vir um arco-íris, lembre-se: Deus sempre cumpre o que promete!",
+  "licao_2": "Converse com sua família: se você estivesse na arca, qual animal você ia querer ajudar a cuidar?",
+  "fim": "Inscreva-se no canal! Na próxima história: A Torre de Babel."
+ },
+ "dur": {
+  "vinheta": 1.423,
+  "titulo": 1.593,
+  "gancho_1": 4.13,
+  "s1_1": 5.754,
+  "s1_2": 3.58,
+  "s2_1": 3.899,
+  "s2_2": 4.061,
+  "s3_1": 3.444,
+  "s3_2": 2.775,
+  "s3_3": 2.057,
+  "s4_1": 7.693,
+  "s5_1": 3.196,
+  "s5_2": 2.445,
+  "s6_1": 2.787,
+  "s6_2": 2.104,
+  "s6_3": 4.436,
+  "s7_1": 2.518,
+  "s7_2": 2.949,
+  "s7_3": 2.813,
+  "s8_1": 3.512,
+  "s8_2": 5.612,
+  "licao_1": 4.85,
+  "licao_2": 5.963,
+  "fim": 3.59
+ }
+}

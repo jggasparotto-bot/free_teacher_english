@@ -1,0 +1,149 @@
+[
+ {
+  "id": "vinheta",
+  "text": "Bíblia em Traços!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "titulo",
+  "text": "A Torre de Babel.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "gancho_1",
+  "text": "Até onde você acha que dá para construir uma torre? Até as nuvens? Até o céu?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_1",
+  "text": "Depois do dilúvio, a família de Noé cresceu e se espalhou.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_2",
+  "text": "Naquele tempo, todas as pessoas falavam a mesma língua.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_1",
+  "text": "Um dia, disseram: Vamos construir uma cidade com uma torre que chegue até o céu!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_2",
+  "text": "Assim todos vão saber como somos importantes!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_1",
+  "text": "Eles fizeram tijolos e começaram a construir.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_2",
+  "text": "A torre subia, subia, e eles ficavam cada vez mais orgulhosos.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_1",
+  "text": "Mas Deus viu que eles queriam ser importantes sem Ele.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_2",
+  "text": "E por maior que fosse a torre, ela era pequenininha perto de Deus.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_1",
+  "text": "Então Deus misturou as línguas.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_2",
+  "text": "Um pedia tijolo!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_3",
+  "text": "e o outro entendia banana! .",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_4",
+  "text": "Ninguém entendia mais ninguém!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_1",
+  "text": "Eles pararam a construção e foram morar em lugares diferentes do mundo.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_2",
+  "text": "Aquela cidade ficou conhecida como Babel, que quer dizer confusão.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_1",
+  "text": "Ninguém precisa construir uma torre para chegar até Deus.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_2",
+  "text": "Ele já está pertinho de quem é humilde e conversa com Ele.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_3",
+  "text": "Converse com sua família: vocês sabem dizer obrigado em outra língua? Thank you! Gracias! Merci!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "fim",
+  "text": "Inscreva-se no canal! Na próxima história: Abraão e as Estrelas do Céu.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ }
+]

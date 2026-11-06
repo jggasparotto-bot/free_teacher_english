@@ -242,7 +242,7 @@ export function heart(C, o) {
 export function cloud(C, o) {
   const x = o.x, y = o.y, s = o.s || 1, sd = o.seed || 1400;
   const pts = []; for (let i = 0; i <= 90; i++) { const a = i / 90 * Math.PI * 2; const b = 1 + 0.16 * Math.abs(Math.sin(a * 3.5)); pts.push([x + Math.cos(a) * 150 * s * b, y + Math.sin(a) * 62 * s * b * (Math.sin(a) > 0 ? 0.7 : 1)]); }
-  part(C, pts, { col: K.white, p: 1, gap: 7, w: 9, seed: sd + 1, draw: o.fill ?? 1 }, { w: 6.5, col: K.ink, p: 0.85, seed: sd + 2, draw: o.draw ?? 1 });
+  part(C, pts, { col: o.col || K.white, p: 1, gap: 7, w: 9, seed: sd + 1, draw: o.fill ?? 1 }, { w: 6.5, col: K.ink, p: 0.85, seed: sd + 2, draw: o.draw ?? 1 });
 }
 
 // ——— árvore e flor ———

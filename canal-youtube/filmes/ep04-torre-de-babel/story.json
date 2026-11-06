@@ -1,0 +1,128 @@
+{
+ "title": "A Torre de Babel",
+ "ref": "Gênesis 11:1–9",
+ "lesson": "O orgulho nos afasta; a humildade nos aproxima de Deus.",
+ "next": "Abraão e as Estrelas do Céu",
+ "scenes": [
+  {
+   "key": "gancho",
+   "name": "Gancho",
+   "visual": "Uma torre tão alta que atravessa as nuvens.",
+   "lines": [
+    "gancho_1"
+   ]
+  },
+  {
+   "key": "s1",
+   "name": "Todos falavam igual",
+   "visual": "multidão conversando, com balõezinhos de fala todos iguais (mesmo desenho/símbolo).",
+   "lines": [
+    "s1_1",
+    "s1_2"
+   ]
+  },
+  {
+   "key": "s2",
+   "name": "O grande plano",
+   "visual": "homens em volta de uma mesa com um desenho de torre; um deles aponta para o céu, com o peito estufado.",
+   "lines": [
+    "s2_1",
+    "s2_2"
+   ]
+  },
+  {
+   "key": "s3",
+   "name": "Tijolo por tijolo",
+   "visual": "montagem: fornos de tijolo, escadas, a torre subindo andar por andar, nuvens passando ao lado.",
+   "lines": [
+    "s3_1",
+    "s3_2"
+   ]
+  },
+  {
+   "key": "s4",
+   "name": "Deus vê",
+   "visual": "uma luz suave do alto observa; a câmera sobe e mostra que, vista de cima, a torre \"gigante\" é pequenininha.",
+   "lines": [
+    "s4_1",
+    "s4_2"
+   ]
+  },
+  {
+   "key": "s5",
+   "name": "Que confusão!",
+   "visual": "balões de fala com símbolos diferentes (letras de idiomas variados, desenhos); um pede tijolo e recebe um balde; cômico.",
+   "lines": [
+    "s5_1",
+    "s5_2",
+    "s5_3",
+    "s5_4"
+   ]
+  },
+  {
+   "key": "s6",
+   "name": "Espalhados pelo mundo",
+   "visual": "mapa desenhado; grupos de pessoas caminhando para lugares diferentes; a torre inacabada fica para trás.",
+   "lines": [
+    "s6_1",
+    "s6_2"
+   ]
+  },
+  {
+   "key": "licao",
+   "name": "Lição",
+   "visual": "",
+   "lines": [
+    "licao_1",
+    "licao_2",
+    "licao_3"
+   ]
+  }
+ ],
+ "subs": {
+  "vinheta": "Bíblia em Traços!",
+  "titulo": "A Torre de Babel.",
+  "gancho_1": "Até onde você acha que dá para construir uma torre? Até as nuvens? Até o céu?",
+  "s1_1": "Depois do dilúvio, a família de Noé cresceu e se espalhou.",
+  "s1_2": "Naquele tempo, todas as pessoas falavam a mesma língua.",
+  "s2_1": "Um dia, disseram: “Vamos construir uma cidade com uma torre que chegue até o céu!”",
+  "s2_2": "“Assim todos vão saber como somos importantes!”",
+  "s3_1": "Eles fizeram tijolos e começaram a construir.",
+  "s3_2": "A torre subia, subia... e eles ficavam cada vez mais orgulhosos.",
+  "s4_1": "Mas Deus viu que eles queriam ser importantes sem Ele.",
+  "s4_2": "E por maior que fosse a torre, ela era pequenininha perto de Deus.",
+  "s5_1": "Então Deus misturou as línguas.",
+  "s5_2": "Um pedia “tijolo!”",
+  "s5_3": "e o outro entendia “banana!”",
+  "s5_4": "Ninguém entendia mais ninguém!",
+  "s6_1": "Eles pararam a construção e foram morar em lugares diferentes do mundo.",
+  "s6_2": "Aquela cidade ficou conhecida como Babel, que quer dizer “confusão”.",
+  "licao_1": "Ninguém precisa construir uma torre para chegar até Deus.",
+  "licao_2": "Ele já está pertinho de quem é humilde e conversa com Ele.",
+  "licao_3": "Converse com sua família: vocês sabem dizer “obrigado” em outra língua? Thank you! Gracias! Merci!",
+  "fim": "Inscreva-se no canal! Na próxima história: Abraão e as Estrelas do Céu."
+ },
+ "dur": {
+  "vinheta": 1.423,
+  "titulo": 1.45,
+  "gancho_1": 4.913,
+  "s1_1": 3.636,
+  "s1_2": 3.435,
+  "s2_1": 4.912,
+  "s2_2": 3.059,
+  "s3_1": 2.999,
+  "s3_2": 4.232,
+  "s4_1": 3.198,
+  "s4_2": 4.024,
+  "s5_1": 2.254,
+  "s5_2": 1.406,
+  "s5_3": 2.104,
+  "s5_4": 2.346,
+  "s6_1": 4.399,
+  "s6_2": 4.082,
+  "licao_1": 3.607,
+  "licao_2": 3.72,
+  "licao_3": 5.96,
+  "fim": 4.326
+ }
+}

@@ -1,0 +1,184 @@
+[
+ {
+  "id": "vinheta",
+  "text": "Bíblia em Traços!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "titulo",
+  "text": "Abraão e as Estrelas do Céu.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "gancho_1",
+  "text": "Você consegue contar as estrelas do céu?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "gancho_2",
+  "text": "Deus pediu para um homem tentar!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_1",
+  "text": "Havia um homem chamado Abrão.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_2",
+  "text": "Um dia Deus disse a ele: Saia da sua terra e vá para um lugar que eu vou mostrar.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_3",
+  "text": "Eu vou abençoar você!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_1",
+  "text": "Abrão não sabia para onde estava indo, mas confiou em Deus.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_2",
+  "text": "Ele juntou sua esposa Sarai, os empregados e os animais, e partiu.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_1",
+  "text": "Abrão e Sarai tinham um sonho: ter um filho.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_2",
+  "text": "Mas eles já estavam bem velhinhos.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_3",
+  "text": "Parecia impossível.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_1",
+  "text": "Numa noite, Deus disse: Olhe para o céu e conte as estrelas, se puder.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_2",
+  "text": "Assim será a sua família: tão grande quanto as estrelas!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_1",
+  "text": "Abrão acreditou em Deus.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_2",
+  "text": "E Deus mudou o nome dele para Abraão, que quer dizer pai de muitos, e o de Sarai para Sara.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_1",
+  "text": "Um dia, visitantes enviados por Deus disseram: No ano que vem, Sara terá um filho!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_2",
+  "text": "Sara riu baixinho: Na minha idade?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s7_1",
+  "text": "E Deus cumpriu a promessa!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s7_2",
+  "text": "Sara teve um menino, e eles o chamaram de Isaque, que quer dizer riso.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s7_3",
+  "text": "Agora era a alegria que fazia Sara rir!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_1",
+  "text": "Nada é impossível para Deus.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_2",
+  "text": "Às vezes temos que esperar, mas Ele sempre cumpre o que promete.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_3",
+  "text": "Converse com sua família: hoje à noite, olhem juntos para o céu.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_4",
+  "text": "Quantas estrelas vocês conseguem contar?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "fim",
+  "text": "Inscreva-se no canal! Na próxima história: José e a Túnica Colorida.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ }
+]

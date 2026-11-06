@@ -1,0 +1,205 @@
+[
+ {
+  "id": "vinheta",
+  "text": "Bíblia em Traços!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "titulo",
+  "text": "José e a Túnica Colorida.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "gancho_1",
+  "text": "Um presente colorido, que deixou onze irmãos com muita inveja!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_1",
+  "text": "Jacó tinha doze filhos, mas José era o seu preferido.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_2",
+  "text": "Ele deu a José uma túnica linda e colorida.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_3",
+  "text": "Os irmãos ficaram com muita inveja.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_1",
+  "text": "José teve sonhos estranhos: feixes de trigo e até estrelas se curvavam diante dele.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_2",
+  "text": "Quando contou aos irmãos, eles ficaram ainda mais bravos.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_1",
+  "text": "Um dia, no campo, os irmãos pegaram José, tiraram sua túnica e o jogaram num poço vazio.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_2",
+  "text": "Depois o venderam para mercadores que iam para o Egito.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_1",
+  "text": "No Egito, José virou escravo.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_2",
+  "text": "Mas Deus estava com ele, e tudo o que José fazia dava certo.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_1",
+  "text": "Mesmo sendo inocente, José foi parar na prisão.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_2",
+  "text": "Lá, Deus o ajudou a explicar os sonhos de dois prisioneiros.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_3",
+  "text": "Tudo aconteceu exatamente como ele disse.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_1",
+  "text": "Um dia o Faraó, o rei do Egito, teve um sonho que ninguém entendia.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_2",
+  "text": "Chamaram José, e ele explicou: Virão sete anos de fartura e depois sete anos de fome. Guarde comida!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s7_1",
+  "text": "O Faraó ficou tão impressionado que fez de José o governador do Egito.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s7_2",
+  "text": "José guardou comida em celeiros gigantes.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s8_1",
+  "text": "Quando a fome chegou, os irmãos de José vieram ao Egito comprar comida.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s8_2",
+  "text": "Eles se curvaram diante do governador, sem saber que era José!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s9_1",
+  "text": "José não se vingou.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s9_2",
+  "text": "Ele chorou e disse: Sou eu, José!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s9_3",
+  "text": "Vocês quiseram me fazer mal, mas Deus transformou tudo em bem.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s9_4",
+  "text": "E toda a família ficou junta de novo.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_1",
+  "text": "Mesmo nos dias difíceis, Deus está trabalhando.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_2",
+  "text": "E perdoar é a coisa mais corajosa que podemos fazer.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_3",
+  "text": "Converse com sua família: tem alguém que você precisa perdoar hoje?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "fim",
+  "text": "Inscreva-se no canal! Na próxima história: O Bebê Moisés e a Sarça Ardente.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ }
+]
