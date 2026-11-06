@@ -1,7 +1,7 @@
 # Episódio 01 — A Criação
 
-**Referência:** Gênesis 1–2 · **Duração:** ~2min40 (piloto) a 5 min · **Lição:** Deus fez tudo com amor, e fez você também.
-**Status:** ✅ **vídeo piloto gerado** (`video/gerar_episodio_01.py`)
+**Referência:** Gênesis 1–2 · **Duração:** ~2min20 (piloto) a 5 min · **Lição:** Deus fez tudo com amor, e fez você também.
+**Status:** ✅ **vídeo piloto gerado e narrado** (`video/gerar_episodio_01.py`)
 
 ## Gancho (0:05)
 🎨 Tela escura com pontinhos de poeira flutuando.

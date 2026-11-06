@@ -175,3 +175,7 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
+
+# Bíblia em Traços — modelos de voz e saídas geradas
+canal-youtube/video/modelos/
+canal-youtube/video/saida/

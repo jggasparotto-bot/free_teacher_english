@@ -3,14 +3,17 @@
 Bíblia em Traços — Episódio 01: A Criação (piloto)
 
 Gera o vídeo animado completo (1920x1080, 24 fps) só com código:
+  - narração em português com voz neural (Kokoro, gratuita, roda offline)
   - desenhos vetoriais feitos com Pillow (renderizados em 4K e reduzidos = traço suave)
   - legendas embutidas + arquivo .srt (para gravar a narração no ritmo certo)
   - trilha sonora original gerada com numpy (sem direitos autorais de terceiros)
 
 Uso:
-  python3 gerar_episodio_01.py [pasta_de_saida]
+  python3 gerar_episodio_01.py [pasta_de_saida] [--sem-voz | --thumbs]
+  VOZ=pm_alex python3 gerar_episodio_01.py saida   # troca a voz do narrador
 
-Requisitos: python3, pillow, numpy, ffmpeg.
+Requisitos: python3, pillow, numpy, ffmpeg, kokoro-onnx, soundfile, espeak-ng.
+(O modelo de voz, ~350 MB, é baixado sozinho na primeira vez para a pasta modelos/.)
 """
 import math
 import os
@@ -800,8 +803,10 @@ def ov_end(img, t, d):
 # Roteiro do episódio (mesmo texto do roteiro 01, para narração)
 # ----------------------------------------------------------------------------
 SCENES = [
-    dict(name="intro", func=sc_intro, dur=5.0, overlay=ov_intro, subs=[]),
-    dict(name="titulo", func=sc_title, dur=4.5, overlay=ov_title, subs=[]),
+    dict(name="intro", func=sc_intro, dur=5.0, overlay=ov_intro, subs=[],
+         say=[(2.9, "Bíblia em Traços!")]),
+    dict(name="titulo", func=sc_title, dur=4.5, overlay=ov_title, subs=[],
+         say=[(0.9, "A Criação.")]),
     dict(name="escuridao", func=sc_dark, subs=[
         "No princípio, antes de existir qualquer coisa, tudo era escuro e vazio.",
         "Não havia céu, nem terra, nem mar... Mas Deus já estava lá.",
@@ -845,10 +850,89 @@ SCENES = [
     ]),
 ]
 
-LEAD, TAIL, FADE = 0.7, 0.8, 0.45
+LEAD, TAIL, FADE = 1.0, 1.0, 0.45
+GAP = 1.1  # respiro entre uma fala e a próxima
+
+# ----------------------------------------------------------------------------
+# Narração (voz neural Kokoro, roda offline depois de baixar o modelo)
+# ----------------------------------------------------------------------------
+VOICE = os.environ.get("VOZ", "pf_dora")  # pf_dora (feminina) · pm_alex · pm_santa (masculinas)
+VOICE_SPEED = float(os.environ.get("VELOCIDADE_VOZ", "0.88"))
+MODEL_DIR = os.environ.get("KOKORO_DIR", os.path.join(os.path.dirname(os.path.abspath(__file__)), "modelos"))
+MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
+NARR_DIR = os.path.join(OUT, "narracao")
+NARR_SR = 44100
+_narr_len = None
+
+
+def narration_lengths():
+    """Duração (s) de cada fala já sintetizada; vazio se a narração ainda não foi gerada."""
+    global _narr_len
+    if _narr_len is None:
+        path = os.path.join(NARR_DIR, "duracoes.json")
+        if os.path.exists(path):
+            import json
+            with open(path, encoding="utf-8") as fh:
+                _narr_len = json.load(fh)
+        else:
+            _narr_len = {}
+    return _narr_len
+
+
+def tts_text(text):
+    """Limpa o texto da legenda para a voz ler com naturalidade."""
+    t = text.replace("“", "").replace("”", "").replace('"', "")
+    t = t.strip(". ").replace("...", ",") if t.startswith("...") else t.replace("...", ",")
+    return t.strip(" ,")
+
+
+def all_lines():
+    lines = []
+    for sc in SCENES:
+        lines += list(sc["subs"]) + [txt for _, txt in sc.get("say", [])]
+    return lines
+
+
+def synthesize_narration():
+    """Gera um .wav (44.1 kHz) por fala e grava as durações em duracoes.json."""
+    import json
+    import urllib.request
+
+    import soundfile as sf
+    from kokoro_onnx import Kokoro
+
+    os.makedirs(MODEL_DIR, exist_ok=True)
+    for fn in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+        dst = os.path.join(MODEL_DIR, fn)
+        if not os.path.exists(dst):
+            print(f"Baixando modelo de voz: {fn} ...", flush=True)
+            urllib.request.urlretrieve(MODEL_URL + fn, dst)
+    kok = Kokoro(os.path.join(MODEL_DIR, "kokoro-v1.0.onnx"), os.path.join(MODEL_DIR, "voices-v1.0.bin"))
+    os.makedirs(NARR_DIR, exist_ok=True)
+    lengths = {}
+    for i, line in enumerate(all_lines()):
+        raw = os.path.join(NARR_DIR, f"bruto_{i:02d}.wav")
+        wav = os.path.join(NARR_DIR, f"fala_{i:02d}.wav")
+        audio, sr = kok.create(tts_text(line), voice=VOICE, speed=VOICE_SPEED, lang="pt-br")
+        # tira silêncio do começo/fim
+        thr = 0.01 * np.abs(audio).max()
+        idx = np.where(np.abs(audio) > thr)[0]
+        audio = audio[max(0, idx[0] - int(0.03 * sr)): idx[-1] + int(0.08 * sr)]
+        sf.write(raw, audio, sr)
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-ar", str(NARR_SR), "-ac", "1", wav], check=True)
+        os.remove(raw)
+        lengths[line] = sf.info(wav).duration
+        print(f"  voz {i + 1:02d}: {lengths[line]:.1f}s  {line}", flush=True)
+    with open(os.path.join(NARR_DIR, "duracoes.json"), "w", encoding="utf-8") as fh:
+        json.dump(lengths, fh, ensure_ascii=False, indent=1)
+    global _narr_len
+    _narr_len = lengths
 
 
 def sub_len(text):
+    n = narration_lengths().get(text)
+    if n is not None:
+        return max(2.4, n + GAP)
     return max(3.4, len(text) / 12.5 + 1.0)
 
 
@@ -959,12 +1043,50 @@ def music(duration, path, sr=44100):
     L, R = L * env, R * env
     peak = max(np.abs(L).max(), np.abs(R).max())
     L, R = L / peak * 0.55, R / peak * 0.55
-    data = (np.stack([L, R], axis=1)[: int(duration * sr)] * 32767).astype(np.int16)
+    mix = np.stack([L, R], axis=1)[: int(duration * sr)]
+    if narration_lengths():
+        mix = add_voice(mix, sr)
+    data = (np.clip(mix, -1, 1) * 32767).astype(np.int16)
     with wave.open(path, "wb") as w:
         w.setnchannels(2)
         w.setsampwidth(2)
         w.setframerate(sr)
         w.writeframes(data.tobytes())
+
+
+def add_voice(mix, sr):
+    """Coloca cada fala no tempo certo e abaixa a música (ducking) enquanto o narrador fala."""
+    import soundfile as sf
+
+    n = len(mix)
+    voice = np.zeros(n)
+    active = np.zeros(n)
+    lines = all_lines()
+    starts = []
+    for sc in SCENES:
+        starts += [sc["start"] + c for c in sc["cues"]]
+        starts += [sc["start"] + t for t, _ in sc.get("say", [])]
+    for i, (line, st) in enumerate(zip(lines, starts)):
+        a, _ = sf.read(os.path.join(NARR_DIR, f"fala_{i:02d}.wav"))
+        rms = np.sqrt(np.mean(a ** 2)) + 1e-9
+        a = a * (0.11 / rms)  # nível uniforme entre as falas (~ -19 dBFS RMS)
+        i0 = int(st * sr)
+        m = min(len(a), n - i0)
+        voice[i0:i0 + m] += a[:m]
+        active[i0:i0 + m] = 1
+    # envelope suave: a música desce 0,25 s antes da fala e volta 0,6 s depois
+    def smooth(x, win):
+        c = np.concatenate([[0.0], np.cumsum(x)])
+        h = win // 2
+        idx = np.arange(len(x))
+        lo, hi = np.clip(idx - h, 0, len(x)), np.clip(idx + h, 0, len(x))
+        return (c[hi] - c[lo]) / np.maximum(hi - lo, 1)
+
+    env = np.clip(smooth(active, int(0.5 * sr)) * 2.5, 0, 1)  # cobre ~0,25 s antes/depois da fala
+    env = smooth(env, int(0.6 * sr))                            # subida/descida suave
+    duck = 1 - 0.8 * np.clip(env, 0, 1)
+    out = mix * duck[:, None] + voice[:, None] * 0.95
+    return 0.89 * np.tanh(out * 1.1) / np.tanh(1.1)  # limitador suave (pico ~ -1 dB)
 
 
 def srt_time(x):
@@ -988,6 +1110,9 @@ def write_srt(path):
 
 def main():
     os.makedirs(os.path.join(OUT, "partes"), exist_ok=True)
+    if "--thumbs" not in sys.argv and "--sem-voz" not in sys.argv:
+        print(f"Gerando narração (voz {VOICE}) ...", flush=True)
+        synthesize_narration()
     total = build_timeline()
     print(f"Duração total: {total:.1f} s ({int(total * FPS)} quadros)")
     if "--thumbs" in sys.argv:
@@ -1007,6 +1132,9 @@ def main():
                     "-i", os.path.join(OUT, "trilha.wav"), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
                     "-shortest", "-movflags", "+faststart", final], check=True)
     shutil.rmtree(os.path.join(OUT, "partes"))
+    if os.path.isdir(NARR_DIR):
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", os.path.join(OUT, "trilha.wav"),
+                        "-b:a", "192k", os.path.join(OUT, "audio_narrado.mp3")], check=True)
     print("Vídeo pronto:", final)
 
 

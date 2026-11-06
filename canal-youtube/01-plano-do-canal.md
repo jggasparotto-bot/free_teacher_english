@@ -150,8 +150,9 @@ Roteiro  →  Narração  →  Animação  →  Edição  →  Miniatura  →  U
 2. **Narração:**
    - **Opção A, sua voz (recomendada, cria vínculo):** celular + microfone de lapela (R$ 50–150), quarto com cobertores e cortinas para abafar o eco. Grave cada fala 2 vezes e escolha a melhor. Fale sorrindo e devagar, uns 130 palavras por minuto.
    - **Opção B:** contratar um locutor infantil (Workana, 99Freelas, Fiverr).
-   - **Opção C:** voz sintética com licença comercial (ex.: ElevenLabs). Revise sempre a pronúncia de nomes bíblicos.
-   - O gerador do piloto cria um arquivo **`.srt` com o tempo de cada fala**. Use-o como guia para gravar no ritmo certo, ou ajuste os tempos depois.
+   - **Opção C, já pronta no gerador:** voz neural **Kokoro** (gratuita, licença Apache 2.0, uso comercial permitido), com 3 vozes em português (Dora, Alex, Santa). O piloto já sai narrado com ela.
+   - **Opção D:** voz sintética paga, mais expressiva (ex.: ElevenLabs). Revise sempre a pronúncia de nomes bíblicos.
+   - O gerador cria um arquivo **`.srt` com o tempo de cada fala**. Se for gravar a própria voz, gere o vídeo com `--sem-voz` e use o `.srt` como guia de ritmo. O mesmo arquivo pode ser enviado ao YouTube como legenda.
 3. **Animação:**
    - **Pelo gerador em código** (`video/gerar_episodio_01.py`): copie o arquivo, troque as cenas e as falas e rode o script.
    - **Ou em ferramentas visuais:** Canva (fácil), CapCut (fácil, ótimo para Shorts), Krita/Procreate (desenho à mão), Blender Grease Pencil (animação 2D gratuita e profissional).

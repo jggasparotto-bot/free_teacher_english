@@ -6,10 +6,12 @@ Histórias da Bíblia desenhadas para toda a família.
 |---|---|
 | 📺 Plano completo do canal (identidade, formatos, calendário, SEO, configuração, crescimento) | [`01-plano-do-canal.md`](01-plano-do-canal.md) |
 | 📝 Roteiros das 20 histórias (cenas, narração, lição, Short, título, tags e miniatura) | [`roteiros/`](roteiros/) |
-| 🎬 Episódio piloto pronto: **A Criação** (1080p, 2min36, trilha original + legendas) | [`video/ep01/ep01_a_criacao.mp4`](video/ep01/ep01_a_criacao.mp4) |
+| 🎬 Episódio piloto pronto: **A Criação** (1080p, 2min20, **narrado**, trilha original + legendas) | [`video/ep01/ep01_a_criacao.mp4`](video/ep01/ep01_a_criacao.mp4) |
+| 🎙️ Amostra das 3 vozes de narrador disponíveis (Dora, Alex, Santa) | [`video/ep01/amostra_vozes.mp3`](video/ep01/amostra_vozes.mp3) |
+| 🔊 Só o áudio do episódio (voz + trilha) | [`video/ep01/audio_narrado.mp3`](video/ep01/audio_narrado.mp3) |
 | 🖼️ Miniatura do piloto (1280×720) | [`video/ep01/miniatura_ep01.png`](video/ep01/miniatura_ep01.png) |
-| ⏱️ Tempos das falas para gravar a narração | [`video/ep01/ep01_a_criacao.srt`](video/ep01/ep01_a_criacao.srt) |
-| ⚙️ Gerador do vídeo (desenhos, animação e trilha feitos 100% em código) | [`video/gerar_episodio_01.py`](video/gerar_episodio_01.py) |
+| ⏱️ Legendas com o tempo de cada fala (pode subir no YouTube como legenda) | [`video/ep01/ep01_a_criacao.srt`](video/ep01/ep01_a_criacao.srt) |
+| ⚙️ Gerador do vídeo (desenhos, animação, narração e trilha feitos 100% em código) | [`video/gerar_episodio_01.py`](video/gerar_episodio_01.py) |
 
 ## Roteiros
 
@@ -28,15 +30,20 @@ Histórias da Bíblia desenhadas para toda a família.
 
 ## Como gerar o vídeo de novo
 
-Requisitos: Python 3, `pillow`, `numpy` e `ffmpeg`.
+Requisitos: Python 3, `pillow`, `numpy`, `ffmpeg`, `espeak-ng` e `pip install kokoro-onnx soundfile`.
+Na primeira execução, o modelo de voz (~350 MB) é baixado sozinho para `video/modelos/`.
 
 ```bash
 cd canal-youtube/video
-python3 gerar_episodio_01.py saida            # vídeo completo (~2-10 min, conforme o computador)
+python3 gerar_episodio_01.py saida            # vídeo completo e narrado (~3-10 min, conforme o computador)
+VOZ=pm_alex python3 gerar_episodio_01.py saida # mesmo vídeo com voz masculina (pf_dora | pm_alex | pm_santa)
+python3 gerar_episodio_01.py saida --sem-voz  # só trilha + legendas, para gravar a própria voz
 python3 gerar_episodio_01.py saida --thumbs   # só prévias em PNG de cada cena (rápido)
 python3 gerar_miniatura_01.py                  # miniatura 1280x720
 ```
 
-O vídeo sai **sem narração de voz**, com legendas embutidas e a trilha original. Grave a sua voz seguindo o
-arquivo `.srt` e junte no CapCut, DaVinci Resolve ou Shotcut, com a trilha a cerca de −20 dB embaixo da voz.
+O vídeo sai **narrado** por uma voz neural gratuita em português, que roda no próprio computador. A música
+abaixa sozinha enquanto o narrador fala, e o áudio já sai no volume que o YouTube recomenda (cerca de −14 a −15 LUFS).
+Também dá para mudar a velocidade da fala com `VELOCIDADE_VOZ=0.8`. Para trocar pela sua própria voz depois,
+use `--sem-voz` e grave seguindo o arquivo `.srt`.
 Para fazer um novo episódio, copie o script, troque a lista `SCENES` (falas) e as funções `sc_*` (desenhos).
