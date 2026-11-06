@@ -1,0 +1,125 @@
+{
+ "title": "As Muralhas de Jericó",
+ "ref": "Josué 6",
+ "lesson": "Obedecer a Deus, mesmo quando o plano parece estranho, traz vitória.",
+ "next": "Sansão, o Homem Mais Forte",
+ "scenes": [
+  {
+   "key": "gancho",
+   "name": "Gancho",
+   "visual": "Muralhas gigantes e grossas, com guardas lá no alto.",
+   "lines": [
+    "gancho_1"
+   ]
+  },
+  {
+   "key": "s1",
+   "name": "A cidade fechada",
+   "visual": "Jericó com portões trancados e muralhas duplas; o povo de Israel acampado lá embaixo.",
+   "lines": [
+    "s1_1",
+    "s1_2"
+   ]
+  },
+  {
+   "key": "s2",
+   "name": "O plano de Deus",
+   "visual": "Josué ajoelhado; um anjo com espada brilhante (amigável) à frente dele; um \"mapa\" com setinhas dando voltas na cidade.",
+   "lines": [
+    "s2_1",
+    "s2_2"
+   ]
+  },
+  {
+   "key": "s3",
+   "name": "Dias 1 a 6",
+   "visual": "o povo marchando em silêncio, sacerdotes com trombetas de chifre; contador na tela: 1, 2, 3, 4, 5, 6; guardas no alto rindo.",
+   "lines": [
+    "s3_1",
+    "s3_2",
+    "s3_3"
+   ]
+  },
+  {
+   "key": "s4",
+   "name": "O sétimo dia",
+   "visual": "amanhecer; sete voltas com contador grande na tela; os pés marchando cada vez mais forte.",
+   "lines": [
+    "s4_1"
+   ]
+  },
+  {
+   "key": "s5",
+   "name": "O grande grito",
+   "visual": "trombetas tocando, todos gritando de braços para cima; a tela treme.",
+   "lines": [
+    "s5_1",
+    "s5_2",
+    "s5_3"
+   ]
+  },
+  {
+   "key": "s6",
+   "name": "As muralhas caem",
+   "visual": "as muralhas desabam como peças de dominó, numa nuvem de poeira; numa parte da muralha, uma casa com uma corda vermelha na janela fica de pé.",
+   "lines": [
+    "s6_1",
+    "s6_2"
+   ]
+  },
+  {
+   "key": "licao",
+   "name": "Lição",
+   "visual": "",
+   "lines": [
+    "licao_1",
+    "licao_2",
+    "licao_3"
+   ]
+  }
+ ],
+ "subs": {
+  "vinheta": "Bíblia em Traços!",
+  "titulo": "As Muralhas de Jericó.",
+  "gancho_1": "Como derrubar uma muralha enorme... sem martelo, sem máquina, só andando e tocando trombeta?",
+  "s1_1": "Depois de muitos anos no deserto, o povo de Israel chegou à terra que Deus prometeu.",
+  "s1_2": "Mas, no caminho, havia a cidade de Jericó, com muralhas altíssimas e portões trancados.",
+  "s2_1": "Josué, o novo líder, ouviu de Deus um plano diferente: “Deem uma volta na cidade por dia, durante seis dias.”",
+  "s2_2": "“No sétimo dia, deem sete voltas e toquem as trombetas!”",
+  "s3_1": "E lá foram eles, marchando em silêncio, uma volta por dia.",
+  "s3_2": "Os guardas lá de cima riam: “O que esse povo está fazendo?”",
+  "s3_3": "Mas Israel obedeceu.",
+  "s4_1": "No sétimo dia, eles deram uma volta... duas... três... quatro... cinco... seis... SETE!",
+  "s5_1": "Os sacerdotes tocaram as trombetas e Josué disse: “Gritem!”",
+  "s5_2": "“Deus nos deu a cidade!”",
+  "s5_3": "E todo o povo gritou bem alto!",
+  "s6_1": "E as muralhas de Jericó caíram!",
+  "s6_2": "Só uma casinha ficou de pé: a de Raabe, uma mulher que tinha ajudado o povo de Deus e pendurou uma corda vermelha na janela.",
+  "licao_1": "Os israelitas não derrubaram a muralha com força. Foi Deus!",
+  "licao_2": "A parte deles era confiar e obedecer.",
+  "licao_3": "Converse com sua família: vamos marchar juntos pela sala e, no final, dar um grito de alegria?",
+  "fim": "Inscreva-se no canal! Na próxima história: Sansão, o Homem Mais Forte."
+ },
+ "dur": {
+  "vinheta": 1.423,
+  "titulo": 1.671,
+  "gancho_1": 5.227,
+  "s1_1": 5.321,
+  "s1_2": 5.409,
+  "s2_1": 7.181,
+  "s2_2": 3.887,
+  "s3_1": 3.656,
+  "s3_2": 3.654,
+  "s3_3": 1.795,
+  "s4_1": 4.795,
+  "s5_1": 3.756,
+  "s5_2": 1.805,
+  "s5_3": 2.22,
+  "s6_1": 2.265,
+  "s6_2": 7.673,
+  "licao_1": 3.853,
+  "licao_2": 2.573,
+  "licao_3": 5.794,
+  "fim": 4.372
+ }
+}

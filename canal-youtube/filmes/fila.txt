@@ -1,3 +1,8 @@
 ep03-noe-e-a-arca:noe-e-a-arca
 ep04-torre-de-babel:torre-de-babel
 ep05-abraao:abraao
+ep06-jose:jose
+ep07-moises:moises
+ep08-mar-vermelho:mar-vermelho
+ep09-jerico:jerico
+ep10-sansao:sansao

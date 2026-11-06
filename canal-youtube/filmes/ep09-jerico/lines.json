@@ -1,0 +1,142 @@
+[
+ {
+  "id": "vinheta",
+  "text": "Bíblia em Traços!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "titulo",
+  "text": "As Muralhas de Jericó.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "gancho_1",
+  "text": "Como derrubar uma muralha enorme, sem martelo, sem máquina, só andando e tocando trombeta?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_1",
+  "text": "Depois de muitos anos no deserto, o povo de Israel chegou à terra que Deus prometeu.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_2",
+  "text": "Mas, no caminho, havia a cidade de Jericó, com muralhas altíssimas e portões trancados.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_1",
+  "text": "Josué, o novo líder, ouviu de Deus um plano diferente: Deem uma volta na cidade por dia, durante seis dias.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_2",
+  "text": "No sétimo dia, deem sete voltas e toquem as trombetas!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_1",
+  "text": "E lá foram eles, marchando em silêncio, uma volta por dia.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_2",
+  "text": "Os guardas lá de cima riam: O que esse povo está fazendo?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_3",
+  "text": "Mas Israel obedeceu.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_1",
+  "text": "No sétimo dia, eles deram uma volta, duas, três, quatro, cinco, seis, SETE!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_1",
+  "text": "Os sacerdotes tocaram as trombetas e Josué disse: Gritem!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_2",
+  "text": "Deus nos deu a cidade!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_3",
+  "text": "E todo o povo gritou bem alto!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_1",
+  "text": "E as muralhas de Jericó caíram!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_2",
+  "text": "Só uma casinha ficou de pé: a de Raabe, uma mulher que tinha ajudado o povo de Deus e pendurou uma corda vermelha na janela.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_1",
+  "text": "Os israelitas não derrubaram a muralha com força. Foi Deus!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_2",
+  "text": "A parte deles era confiar e obedecer.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_3",
+  "text": "Converse com sua família: vamos marchar juntos pela sala e, no final, dar um grito de alegria?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "fim",
+  "text": "Inscreva-se no canal! Na próxima história: Sansão, o Homem Mais Forte.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ }
+]

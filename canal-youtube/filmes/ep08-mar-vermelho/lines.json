@@ -1,0 +1,205 @@
+[
+ {
+  "id": "vinheta",
+  "text": "Bíblia em Traços!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "titulo",
+  "text": "A Travessia do Mar Vermelho.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "gancho_1",
+  "text": "Você já imaginou caminhar no meio do mar, sem se molhar?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_1",
+  "text": "Moisés e Arão foram até o Faraó e disseram: Deus mandou dizer: deixe o meu povo ir!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s1_2",
+  "text": "Mas o Faraó respondeu: Não!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_1",
+  "text": "Então Deus mandou sinais sobre o Egito: a água virou sangue, sapos pularam por toda parte, vieram mosquitos, granizo e até escuridão.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s2_2",
+  "text": "Mas o Faraó continuava teimoso.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_1",
+  "text": "Na última noite, Deus protegeu as famílias de Israel que marcaram suas portas, como Ele mandou.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_2",
+  "text": "Aquela noite ficou conhecida como a Páscoa.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s3_3",
+  "text": "E o Faraó finalmente deixou o povo sair.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_1",
+  "text": "Milhares de pessoas saíram do Egito cantando!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s4_2",
+  "text": "Deus ia na frente deles: de dia como uma nuvem, e de noite como uma coluna de fogo.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_1",
+  "text": "Mas o Faraó mudou de ideia e mandou seu exército atrás deles. Na frente, o mar.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_2",
+  "text": "Atrás, os soldados.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s5_3",
+  "text": "O povo gritou: E agora?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_1",
+  "text": "Moisés disse: Não tenham medo!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_2",
+  "text": "Vejam o que Deus vai fazer!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_3",
+  "text": "Ele levantou o cajado e Deus mandou um vento forte.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s6_4",
+  "text": "O mar se abriu ao meio!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s7_1",
+  "text": "E o povo atravessou pelo meio do mar, com o chão sequinho!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s7_2",
+  "text": "As crianças olhavam os peixes nadando nas paredes de água.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s8_1",
+  "text": "Quando todos chegaram do outro lado, as águas voltaram ao lugar.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s8_2",
+  "text": "O exército do Faraó não conseguiu mais alcançá-los.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s8_3",
+  "text": "O povo estava livre!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "s9_1",
+  "text": "Miriã pegou o pandeiro e todos cantaram e dançaram: Cantem ao Senhor, porque Ele é maravilhoso!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_1",
+  "text": "Quando parece que não tem saída, Deus abre um caminho.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_2",
+  "text": "Ele é maior que qualquer problema!",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "licao_3",
+  "text": "Converse com sua família: qual problema vocês querem entregar para Deus hoje?",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ },
+ {
+  "id": "fim",
+  "text": "Inscreva-se no canal! Na próxima história: As Muralhas de Jericó.",
+  "voice": "pf_dora",
+  "speed": 0.88,
+  "lang": "pt-br"
+ }
+]

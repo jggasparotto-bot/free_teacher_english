@@ -1,0 +1,153 @@
+{
+ "title": "O Bebê Moisés e a Sarça Ardente",
+ "ref": "Êxodo 1:8–2:10; 3:1–4:17",
+ "lesson": "Deus cuida de nós desde pequenos e nos dá coragem para a missão.",
+ "next": "A Travessia do Mar Vermelho",
+ "scenes": [
+  {
+   "key": "gancho",
+   "name": "Gancho",
+   "visual": "Um cestinho flutuando no rio, entre os juncos.",
+   "lines": [
+    "gancho_1"
+   ]
+  },
+  {
+   "key": "s1",
+   "name": "O povo escravizado",
+   "visual": "o povo hebreu carregando tijolos sob o sol; um Faraó novo, carrancudo, no alto.",
+   "lines": [
+    "s1_1",
+    "s1_2"
+   ]
+  },
+  {
+   "key": "s2",
+   "name": "O plano da mãe",
+   "visual": "a mãe Joquebede passa piche num cesto e coloca o bebê dentro com carinho; a irmã Miriã observa.",
+   "lines": [
+    "s2_1",
+    "s2_2",
+    "s2_3"
+   ]
+  },
+  {
+   "key": "s3",
+   "name": "A princesa encontra o bebê",
+   "visual": "a filha do Faraó tomando banho no rio; abre o cesto e o bebê sorri; Miriã aparece correndo atrás de uma moita.",
+   "lines": [
+    "s3_1",
+    "s3_2",
+    "s3_3"
+   ]
+  },
+  {
+   "key": "s4",
+   "name": "Moisés, o príncipe",
+   "visual": "o menino cresce no palácio; depois, já adulto, foge para o deserto e vira pastor de ovelhas.",
+   "lines": [
+    "s4_1",
+    "s4_2"
+   ]
+  },
+  {
+   "key": "s5",
+   "name": "O arbusto que não queima",
+   "visual": "uma sarça com chamas laranja, mas as folhas continuam verdes; Moisés se aproxima, de olhos arregalados.",
+   "lines": [
+    "s5_1",
+    "s5_2"
+   ]
+  },
+  {
+   "key": "s6",
+   "name": "Tire as sandálias",
+   "visual": "Moisés tira as sandálias e cobre o rosto; a luz fica mais forte.",
+   "lines": [
+    "s6_1",
+    "s6_2",
+    "s6_3"
+   ]
+  },
+  {
+   "key": "s7",
+   "name": "\"Mas eu?\"",
+   "visual": "Moisés com balõezinhos de dúvida; seu cajado vira serpente e volta a ser cajado; Arão, seu irmão, chega sorrindo.",
+   "lines": [
+    "s7_1",
+    "s7_2",
+    "s7_3",
+    "s7_4"
+   ]
+  },
+  {
+   "key": "licao",
+   "name": "Lição",
+   "visual": "",
+   "lines": [
+    "licao_1",
+    "licao_2",
+    "licao_3",
+    "licao_4"
+   ]
+  }
+ ],
+ "subs": {
+  "vinheta": "Bíblia em Traços!",
+  "titulo": "O Bebê Moisés e a Sarça Ardente.",
+  "gancho_1": "O que um bebê está fazendo dentro de um cesto, boiando no rio?",
+  "s1_1": "Muitos anos depois de José, um novo Faraó governava o Egito.",
+  "s1_2": "Ele tinha medo do povo de Israel, que crescia muito, e fez de todos escravos.",
+  "s2_1": "O Faraó mandou levar todos os bebês meninos.",
+  "s2_2": "Mas uma mãe corajosa escondeu seu filho.",
+  "s2_3": "Depois fez um cestinho à prova d“água e o colocou no rio Nilo.”",
+  "s3_1": "A filha do Faraó encontrou o cesto e se encantou com o bebê.",
+  "s3_2": "A irmã dele, Miriã, perguntou: “Quer que eu chame alguém para cuidar dele?”",
+  "s3_3": "E chamou... a própria mãe!",
+  "s4_1": "A princesa o chamou de Moisés, que quer dizer “tirado das águas”.",
+  "s4_2": "Ele cresceu no palácio, mas um dia precisou fugir e virou pastor de ovelhas no deserto.",
+  "s5_1": "Um dia, Moisés viu algo incrível: um arbusto pegava fogo... mas não queimava!",
+  "s5_2": "Quando chegou perto, ouviu uma voz: “Moisés! Moisés!”",
+  "s6_1": "Era Deus! Ele disse: “Tire as sandálias, pois este lugar é santo.”",
+  "s6_2": "“Eu vi o sofrimento do meu povo.”",
+  "s6_3": "“Vou enviar você para tirá-los do Egito.”",
+  "s7_1": "Moisés ficou com medo: “Quem sou eu?”",
+  "s7_2": "“Eu nem sei falar direito!”",
+  "s7_3": "Mas Deus respondeu: “Eu estarei com você.”",
+  "s7_4": "E mandou Arão, irmão de Moisés, para ajudá-lo.",
+  "licao_1": "Deus cuidou de Moisés quando ele era um bebê, e cuidou dele quando era grande.",
+  "licao_2": "Quando Deus nos chama, Ele mesmo nos ajuda!",
+  "licao_3": "Converse com sua família: quem cuidou de você quando você era bebê?",
+  "licao_4": "Que tal dar um abraço nessa pessoa?",
+  "fim": "Inscreva-se no canal! Na próxima história: A Travessia do Mar Vermelho."
+ },
+ "dur": {
+  "vinheta": 1.423,
+  "titulo": 2.318,
+  "gancho_1": 3.726,
+  "s1_1": 3.824,
+  "s1_2": 4.907,
+  "s2_1": 3.107,
+  "s2_2": 2.771,
+  "s2_3": 3.662,
+  "s3_1": 3.698,
+  "s3_2": 4.348,
+  "s3_3": 1.784,
+  "s4_1": 4.108,
+  "s4_2": 5.495,
+  "s5_1": 4.86,
+  "s5_2": 3.215,
+  "s6_1": 3.849,
+  "s6_2": 2.093,
+  "s6_3": 2.462,
+  "s7_1": 2.347,
+  "s7_2": 1.92,
+  "s7_3": 2.402,
+  "s7_4": 2.949,
+  "licao_1": 4.694,
+  "licao_2": 2.768,
+  "licao_3": 4.164,
+  "licao_4": 2.418,
+  "fim": 4.199
+ }
+}

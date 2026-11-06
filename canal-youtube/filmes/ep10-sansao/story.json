@@ -1,0 +1,147 @@
+{
+ "title": "Sansão, o Homem Mais Forte",
+ "ref": "Juízes 13–16",
+ "lesson": "A verdadeira força vem de Deus, e Ele nos dá uma nova chance quando voltamos para Ele.",
+ "next": "Davi e o Gigante Golias",
+ "scenes": [
+  {
+   "key": "gancho",
+   "name": "Gancho",
+   "visual": "Um homem de cabelos compridos levantando os portões de uma cidade nas costas.",
+   "lines": [
+    "gancho_1"
+   ]
+  },
+  {
+   "key": "s1",
+   "name": "Um menino prometido",
+   "visual": "um anjo visita um casal; depois, um bebê de cabelo cacheado.",
+   "lines": [
+    "s1_1",
+    "s1_2",
+    "s1_3"
+   ]
+  },
+  {
+   "key": "s2",
+   "name": "A força de Deus",
+   "visual": "Sansão adulto empurrando um leão para longe (cômico, sem ferir), carregando o portão da cidade de Gaza.",
+   "lines": [
+    "s2_1",
+    "s2_2"
+   ]
+  },
+  {
+   "key": "s3",
+   "name": "Dalila e o segredo",
+   "visual": "Dalila sorrindo de forma falsa; inimigos filisteus cochichando atrás da cortina com sacos de moedas.",
+   "lines": [
+    "s3_1"
+   ]
+  },
+  {
+   "key": "s4",
+   "name": "Três mentiras",
+   "visual": "três quadrinhos rápidos: Sansão amarrado com cordas, que ele arrebenta rindo; depois cordas novas; depois o cabelo trançado no tear.",
+   "lines": [
+    "s4_1",
+    "s4_2",
+    "s4_3"
+   ]
+  },
+  {
+   "key": "s5",
+   "name": "Sem força",
+   "visual": "Sansão dormindo; tesoura; acorda sem força; é levado pelos filisteus (sem mostrar ferimento dos olhos, apenas venda nos olhos).",
+   "lines": [
+    "s5_1",
+    "s5_2",
+    "s5_3"
+   ]
+  },
+  {
+   "key": "s6",
+   "name": "O cabelo cresce",
+   "visual": "Sansão empurrando um moinho, com o cabelo crescendo aos pouquinhos; ele levanta o rosto e ora.",
+   "lines": [
+    "s6_1",
+    "s6_2",
+    "s6_3"
+   ]
+  },
+  {
+   "key": "s7",
+   "name": "A última vitória",
+   "visual": "num grande templo, Sansão empurra duas colunas; o templo desaba em poeira (vista de longe, sem pessoas feridas).",
+   "lines": [
+    "s7_1",
+    "s7_2",
+    "s7_3"
+   ]
+  },
+  {
+   "key": "licao",
+   "name": "Lição",
+   "visual": "",
+   "lines": [
+    "licao_1",
+    "licao_2",
+    "licao_3"
+   ]
+  }
+ ],
+ "subs": {
+  "vinheta": "Bíblia em Traços!",
+  "titulo": "Sansão, o Homem Mais Forte.",
+  "gancho_1": "Ele era tão forte, mas tão forte... que carregou um portão inteiro nas costas!",
+  "s1_1": "Um anjo apareceu para um casal e disse: “Vocês terão um filho.”",
+  "s1_2": "“Ele será dedicado a Deus, e o cabelo dele nunca deverá ser cortado.”",
+  "s1_3": "O menino se chamou Sansão.",
+  "s2_1": "Quando o Espírito de Deus vinha sobre Sansão, ele ficava forte, muito forte!",
+  "s2_2": "Ele enfrentou um leão e carregou os portões de uma cidade.",
+  "s3_1": "Os filisteus, inimigos de Israel, ofereceram dinheiro a uma mulher chamada Dalila: “Descubra o segredo da força de Sansão!”",
+  "s4_1": "Sansão inventava respostas, e toda vez se soltava facilmente.",
+  "s4_2": "Mas Dalila insistiu tanto que ele acabou contando: “Meu cabelo nunca foi cortado.”",
+  "s4_3": "“Ele é sinal da minha promessa a Deus.”",
+  "s5_1": "Enquanto ele dormia, cortaram seu cabelo.",
+  "s5_2": "Sansão quebrou sua promessa, e a força foi embora.",
+  "s5_3": "Os filisteus o prenderam e o fizeram trabalhar na prisão.",
+  "s6_1": "Mas, na prisão, o cabelo de Sansão começou a crescer de novo.",
+  "s6_2": "E ele se arrependeu e orou: “Senhor, lembra de mim!”",
+  "s6_3": "“Dá-me força só mais uma vez!”",
+  "s7_1": "Deus ouviu a oração.",
+  "s7_2": "Sansão empurrou as colunas do templo dos inimigos com toda força, e o templo caiu.",
+  "s7_3": "Assim, Sansão libertou Israel dos filisteus.",
+  "licao_1": "A força de Sansão não estava nos músculos nem no cabelo. Estava em Deus.",
+  "licao_2": "E quando voltamos para Deus, Ele nos dá uma nova chance.",
+  "licao_3": "Converse com sua família: o que te deixa forte por dentro quando você tem medo?",
+  "fim": "Inscreva-se no canal! Na próxima história: Davi e o Gigante Golias."
+ },
+ "dur": {
+  "vinheta": 1.423,
+  "titulo": 2.04,
+  "gancho_1": 4.75,
+  "s1_1": 3.806,
+  "s1_2": 4.22,
+  "s1_3": 1.945,
+  "s2_1": 4.774,
+  "s2_2": 3.67,
+  "s3_1": 7.415,
+  "s4_1": 4.265,
+  "s4_2": 5.018,
+  "s4_3": 2.435,
+  "s5_1": 2.68,
+  "s5_2": 3.225,
+  "s5_3": 3.57,
+  "s6_1": 3.849,
+  "s6_2": 3.195,
+  "s6_3": 2.075,
+  "s7_1": 1.661,
+  "s7_2": 5.172,
+  "s7_3": 3.019,
+  "licao_1": 4.738,
+  "licao_2": 3.373,
+  "licao_3": 5.127,
+  "fim": 4.152
+ }
+}
