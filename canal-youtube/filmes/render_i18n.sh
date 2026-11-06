@@ -8,7 +8,7 @@ for pair in $1; do
   for l in $2; do
     [ -f "$P/${name}_$l.mp4" ] && { echo "já existe: ${name}_$l.mp4"; continue; }
     echo "== $ep $l: quadros ($(date +%H:%M))"
-    (cd "$LIB" && node core/render/video.mjs "$P" --fps 24 --workers 4 --q "lang=$l" --out "$P/out/video_$l.mp4" | grep -E "done|rror" || true)
+    (cd "$LIB" && node "$HERE/chunk.mjs" "$P" --fps 24 --workers 4 --q "lang=$l" --out "$P/out/video_$l.mp4" | grep -E "done|rror|falhou" || true)
     echo "== $ep $l: master ($(date +%H:%M))"
     sh "$P/master.sh" "$P/out/video_$l.mp4" "$P/mix_$l.wav" "$TMP/${name}_${l}_alta.mp4"
     (cd "$TMP" && ffmpeg -hide_banner -loglevel error -y -i "${name}_${l}_alta.mp4" -vf hqdn3d=1.2:1.2:3:3 -c:v libx264 -preset slow -b:v 5300k -pass 1 -passlogfile "p_${name}_$l" -an -f mp4 /dev/null \

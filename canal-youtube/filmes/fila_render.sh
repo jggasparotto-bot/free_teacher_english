@@ -15,7 +15,7 @@ while true; do
   if [ -z "$next" ]; then [ $fim = 1 ] && ! grep -v FIM "$HERE/fila.txt" | while read -r l; do [ -f "$HERE/${l%%:*}/${l#*:}.mp4" ] || echo x; done | grep -q x && { echo "FIM DA FILA $(date +%H:%M)"; exit 0; }; sleep 60; continue; fi
   ep=${next%%:*}; name=${next#*:}; P="$HERE/$ep"
   echo "== $ep: quadros ($(date +%H:%M))"
-  (cd "$LIB" && node core/render/events.mjs "$P" >/dev/null 2>&1; node core/render/video.mjs "$P" --fps 24 --workers 4 --out "$P/out/video.mp4" 2>&1 | grep -E "done|rror")
+  (cd "$LIB" && node core/render/events.mjs "$P" >/dev/null 2>&1; node "$HERE/chunk.mjs" "$P" --fps 24 --workers 4 --out "$P/out/video.mp4" 2>&1 | grep -E "done|rror|falhou")
   echo "== $ep: master ($(date +%H:%M))"
   sh "$HERE/ep01-a-criacao/master.sh" "$P/out/video.mp4" "$P/mix.wav" "$TMP/${name}_alta.mp4"
   (cd "$TMP" && ffmpeg -hide_banner -loglevel error -y -i "${name}_alta.mp4" -vf hqdn3d=1.2:1.2:3:3 -c:v libx264 -preset slow -b:v 5300k -pass 1 -passlogfile "q_$name" -an -f mp4 /dev/null \
