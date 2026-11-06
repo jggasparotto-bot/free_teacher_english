@@ -5,6 +5,7 @@ Histórias da Bíblia desenhadas para toda a família.
 | O quê | Onde |
 |---|---|
 | 📺 Plano completo do canal (identidade, formatos, calendário, SEO, configuração, crescimento) | [`01-plano-do-canal.md`](01-plano-do-canal.md) |
+| 🎨 **Marca: imagens e textos do YouTube e do Instagram** (perfil, banner, playlists, posts, destaques, story, Reels, desenho para colorir) | [`marca/TEXTOS.md`](marca/TEXTOS.md) · [`marca/youtube/`](marca/youtube/) · [`marca/instagram/`](marca/instagram/) |
 | 📝 Roteiros das 20 histórias (cenas, narração, lição, Short, título, tags e miniatura) | [`roteiros/`](roteiros/) |
 | ⭐ **Episódio 1 oficial: A Criação, no estilo giz de cera** (1080p, 2min11, narrado, trilha com instrumentos reais, legendas) | [`filmes/ep01-a-criacao/a-criacao.mp4`](filmes/ep01-a-criacao/a-criacao.mp4) |
 | 🖼️ Miniatura do episódio 1 (giz de cera) | [`filmes/ep01-a-criacao/poster.jpg`](filmes/ep01-a-criacao/poster.jpg) |
