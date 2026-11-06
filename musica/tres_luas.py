@@ -295,7 +295,7 @@ def machine_arp_note(f):
 def voice(text, whisper=False, pitch_shift=0.82, robot=False):
     with tempfile.TemporaryDirectory() as d:
         p = os.path.join(d, "v.wav")
-        v = "pt-br+whisper" if whisper else "pt-br+m3"
+        v = "en-us+whisper" if whisper else "en-us+m3"
         subprocess.run(["espeak-ng", "-v", v, "-p", "15" if robot else "18", "-s", "105" if robot else "115",
                         "-w", p, text], check=True, capture_output=True)
         with wave.open(p) as w:
@@ -748,7 +748,7 @@ ambience(i0, START["build1"][1], level=0.5)
 drone(i0, i1 + 2, gain=0.16)
 for k, b in enumerate((i0, i0 + 4, i0 + 8)):
     add(bell(note("D5") * (1, 1.2, 1.5)[k]), pos(b), 0.26, pan=(-0.5, 0, 0.5)[k], rev=0.9, dly=0.35)
-VO(voice("Tres luas no ceu..."), i0 + 2, g=0.55, rev=0.6, dly=0.35)
+VO(voice("Three moons in the sky..."), i0 + 2, g=0.55, rev=0.6, dly=0.35)
 for b in range(i0 + 8, i1):
     pluck_bar(b, gain=0.05 + 0.006 * (b - i0 - 8), cut=0.15 + 0.04 * (b - i0 - 8), chord=((b - i0) // 2) % 4)
 add(elastic(220), pos(i0 + 14, 3), 0.2, pan=0.6, rev=0.3, dly=0.4, b="13 FX")
@@ -783,7 +783,7 @@ for i, b in enumerate(range(m0, m1)):
     rims_bar(b)
     if i % 2 == 0: add(elastic(160 + 40 * i, up=i % 4 == 0), pos(b, 1.5), 0.24, pan=0.6 - 0.3 * i, rev=0.3, dly=0.4, b="13 FX")
     if i >= 4: stabs_bar(b, gain=0.16)
-VO(voice("Ei... ainda ta ai?", pitch_shift=0.95), m0 + 1, g=0.6, rev=0.4, dly=0.35)
+VO(voice("Hey... are you still there?", pitch_shift=0.95), m0 + 1, g=0.6, rev=0.4, dly=0.35)
 riser(m1 - 2, m1, 600, 10000, 0.22)
 
 # GROOVE 2: Dickster - punchy full-power bass, swing, wah riff, stabs, rims
@@ -797,7 +797,7 @@ for i, b in enumerate(range(h0, h1)):
     if i >= 8: stabs_bar(b, gain=0.15)
     if i % 8 == 7: add(elastic(260, up=True), pos(b, 3), 0.2, pan=0.7, rev=0.3, dly=0.4, b="13 FX")
 twisted_lead(h0 + 16, 16, gain=0.12, pan=0.3)                 # Regan answers the wah
-VO(stutter(voice("Segura!", robot=True, pitch_shift=0.8)), h0 + 12, g=0.7, rev=0.4, dly=0.45)
+VO(stutter(voice("Hold on!", robot=True, pitch_shift=0.8)), h0 + 12, g=0.7, rev=0.4, dly=0.45)
 SWING = 0.035
 
 # BREAKDOWN: Regan - dark phrygian chords, slow supersaw, reverse swells
@@ -810,7 +810,7 @@ for i, b in enumerate(range(k0 + 12, k1)):
     pluck_bar(b, gain=0.07 + 0.012 * i, cut=0.2 + 0.07 * i, chord=((b - k0) // 2) % 4)
     if i >= 8:
         for beat in range(4): add(filt(KICK, 160 + 250 * (i - 8)), pos(b, beat), 0.45, b="01 Kick")
-VO(voice("Olhe para cima...", whisper=True, pitch_shift=0.9), k0 + 3, g=0.6, rev=0.7, dly=0.35)
+VO(voice("Look up...", whisper=True, pitch_shift=0.9), k0 + 3, g=0.6, rev=0.7, dly=0.35)
 
 # BUILD 2
 u0, u1 = START["build2"]
@@ -821,7 +821,7 @@ for i, b in enumerate(range(u0, u1 - 1)):
     for beat in range(4): add(KICK, pos(b, beat), 0.9, b="01 Kick")
 for beat in (0, 1): add(KICK, pos(u1 - 1, beat), 0.9, b="01 Kick")
 uplifter(u0, u1 - 0.5, 0.24)
-VO(voice("Vai!", robot=True, pitch_shift=0.85), u1 - 1, 2.4, g=0.9, rev=0.5, dly=0.45)
+VO(voice("Go!", robot=True, pitch_shift=0.85), u1 - 1, 2.4, g=0.9, rev=0.5, dly=0.45)
 
 # DROP: the three together - punchy chord bass, wah vs twisted lead call & response, acid underneath
 d0, d1 = START["drop"]
@@ -850,7 +850,7 @@ for i, b in enumerate(range(x0, x1)):
     if i >= 2: bass_bar(b, cut_mult=1.0)
     growl_bar(b, gain=0.26)
     acid_bar(b, open_=0.5 + 0.06 * i, gain=0.28)
-VO(stutter(voice("De novo!", robot=True, pitch_shift=0.78), reps=4), x0, 0, g=0.75, rev=0.45, dly=0.4)
+VO(stutter(voice("Again!", robot=True, pitch_shift=0.78), reps=4), x0, 0, g=0.75, rev=0.45, dly=0.4)
 riser(x1 - 2, x1, 500, 11000, 0.22)
 
 # DROP 2: peak - everything, then the funk takes the last word
@@ -886,7 +886,7 @@ for i, b in enumerate(range(o0, o1)):
 add(elastic(200, up=False), pos(o0 + 20, 2), 0.18, pan=-0.5, rev=0.4, dly=0.4, b="13 FX")
 waves(o0 + 16, o1 + 2, gain=0.18, fade_out=True)
 drone(o0 + 20, o1 + 2, gain=0.14, fade_out=True)
-VO(voice("Boa noite... tres luas."), o0 + 24, g=0.6, rev=0.7, dly=0.4)
+VO(voice("Good night... three moons."), o0 + 24, g=0.6, rev=0.7, dly=0.4)
 for k, b in enumerate((o1 - 6, o1 - 4, o1 - 2)):
     add(bell(note("D5") * (1.5, 1.2, 1)[k]), pos(b), 0.24, pan=(0.5, 0, -0.5)[k], rev=0.9, dly=0.35)
 
