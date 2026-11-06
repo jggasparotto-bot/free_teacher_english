@@ -133,6 +133,7 @@ export function draw(comp, page) {
     bird(TOP, { x: 560 * k, y: 450 * k, s: 1.1 * sk, seed: 950, fill: 0, flip: true, pose: 1 });
     T('Bíblia em Traços · Gênesis 1 e 2', W / 2, H - 50 * k, 44 * k, { font: 'Patrick Hand' });
   }
+  if (P === 'short_bg2') { sun(TOP, { x: 860, y: 230, R: 90, face: 1, seed: 1100 }); T('Adão e Eva', 470, 360, 150); T('Bíblia em Traços', 470, 470, 64, { font: 'Patrick Hand' }); T('Episódio completo', 540, 1440, 96, { col: K.red }); T('no canal!', 540, 1550, 96, { col: K.red }); hills(1700); sheep(TOP, { x: 200, y: 1880, s: 1.4, seed: 500 }); person(TOP, { x: 540, y: 1890, s: 0.8, kind: 'child', seed: 2400, expr: 'wow', armR: [[34, -196], [80, -230], [100, -290]] }); rabbit(TOP, { x: 880, y: 1890, s: 1.3, seed: 600 }); }
   if (P === 'story_novo' || P === 'reel_ep01' || P === 'short_bg') {   // 1080×1920
     if (P === 'story_novo') {
       sun(TOP, { x: 540, y: 300, R: 110, face: 1, seed: 1100 });

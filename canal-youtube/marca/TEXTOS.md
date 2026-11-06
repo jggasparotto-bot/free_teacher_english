@@ -283,4 +283,12 @@ Um jardim lindo, cheio de flores, rios e animais... e uma única regra. Uma serp
 
 #adaoeeva #jardimdoeden #historiasbiblicas #bibliaparacriancas #ebd
 ```
-**Ideia de Reels/Short:** o trecho do entardecer (1:20–1:31), em que a aquarela atravessa o jardim e o coração branco aparece no céu.
+**Short/Reels pronto: `short-reels-ep02-o-coracao.mp4`** (22 s, vertical), da fruta até o coração aparecer no céu. Capa: `instagram/capa-reels-ep02.jpg`.
+- **Título do Short:** `Ninguém se esconde de Deus 💛 Adão e Eva em giz de cera #shorts`
+- **Legenda (Reels):**
+```
+Eles se esconderam... mas ninguém consegue se esconder de Deus. 💛
+E o amor dele continuava lá, no céu do jardim.
+Episódio 2 completo no YouTube (link na bio).
+#reels #adaoeeva #historiasbiblicas #bibliaparacriancas
+```

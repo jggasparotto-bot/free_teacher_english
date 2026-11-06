@@ -30,4 +30,5 @@ hl_novidades 1080 1920
 thumb_ep02 1920 1080
 reel_ep02 1080 1920
 post_ep02 1080 1350
+short_bg2 1080 1920
 LIST
