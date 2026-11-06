@@ -1,0 +1,53 @@
+{
+  "bpm": 144,
+  "key": "D phrygian",
+  "bars": 288,
+  "sample_rate": 44100,
+  "sections": {
+    "intro": {
+      "bar_start": 1,
+      "time": "0:00"
+    },
+    "build1": {
+      "bar_start": 33,
+      "time": "0:53"
+    },
+    "groove1": {
+      "bar_start": 49,
+      "time": "1:20"
+    },
+    "midbreak": {
+      "bar_start": 81,
+      "time": "2:13"
+    },
+    "groove2": {
+      "bar_start": 89,
+      "time": "2:26"
+    },
+    "breakdown": {
+      "bar_start": 121,
+      "time": "3:20"
+    },
+    "build2": {
+      "bar_start": 145,
+      "time": "4:00"
+    },
+    "drop": {
+      "bar_start": 153,
+      "time": "4:13"
+    },
+    "machine": {
+      "bar_start": 201,
+      "time": "5:33"
+    },
+    "drop2": {
+      "bar_start": 209,
+      "time": "5:46"
+    },
+    "outro": {
+      "bar_start": 249,
+      "time": "6:53"
+    }
+  },
+  "stem_gain_db": -6.0
+}
