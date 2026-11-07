@@ -18,8 +18,9 @@ while true; do
   (cd "$LIB" && node core/render/events.mjs "$P" >/dev/null 2>&1; node "$HERE/chunk.mjs" "$P" --fps 24 --workers 4 --out "$P/out/video.mp4" 2>&1 | grep -E "done|rror|falhou")
   echo "== $ep: master ($(date +%H:%M))"
   sh "$HERE/ep01-a-criacao/master.sh" "$P/out/video.mp4" "$P/mix.wav" "$TMP/${name}_alta.mp4"
-  (cd "$TMP" && ffmpeg -hide_banner -loglevel error -y -i "${name}_alta.mp4" -vf hqdn3d=1.2:1.2:3:3 -c:v libx264 -preset slow -b:v 5300k -pass 1 -passlogfile "q_$name" -an -f mp4 /dev/null \
-    && ffmpeg -hide_banner -loglevel error -y -i "${name}_alta.mp4" -vf hqdn3d=1.2:1.2:3:3 -c:v libx264 -preset slow -b:v 5300k -maxrate 8000k -bufsize 11000k -pass 2 -passlogfile "q_$name" -pix_fmt yuv420p -c:a copy -movflags +faststart "$P/$name.mp4")
+  D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$TMP/${name}_alta.mp4"); BR=$(python3 -c "print(min(5300, int(94*8388.608/$D - 220)))")   # cabe em < 100 MB
+  (cd "$TMP" && ffmpeg -hide_banner -loglevel error -y -i "${name}_alta.mp4" -vf hqdn3d=1.2:1.2:3:3 -c:v libx264 -preset slow -b:v ${BR}k -pass 1 -passlogfile "q_$name" -an -f mp4 /dev/null \
+    && ffmpeg -hide_banner -loglevel error -y -i "${name}_alta.mp4" -vf hqdn3d=1.2:1.2:3:3 -c:v libx264 -preset slow -b:v ${BR}k -maxrate 8000k -bufsize 11000k -pass 2 -passlogfile "q_$name" -pix_fmt yuv420p -c:a copy -movflags +faststart "$P/$name.mp4")
   rm -f "$P/out/video.mp4" "$TMP/${name}_alta.mp4"
   echo "== pronto: $name.mp4 $(du -h "$P/$name.mp4" | cut -f1) ($(date +%H:%M))"
 done
